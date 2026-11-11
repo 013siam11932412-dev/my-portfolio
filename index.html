@@ -9,17 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', 'Hind Siliguri', sans-serif;
-            background-color: #111315;
-            color: #F5F3EE;
-        }
-
-        .font-serif {
-            font-family: 'Playfair Display', serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
         }
 
         .lang-bn {
@@ -28,107 +24,164 @@
     </style>
 </head>
 
-<body class="bg-[#111315] text-[#F5F3EE] font-sans antialiased selection:bg-[#D9A441] selection:text-[#111315]">
+<body class="bg-[#f3f4f6] text-[#1f2937] font-sans antialiased">
 
-    <!-- Header Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-[#111315]/90 backdrop-blur-md border-b border-[#1B1E21]">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-wider text-[#D9A441] font-serif">MD SIAM</a>
+    <!-- Main Container Card (Like Reference Image) -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 min-h-screen flex flex-col justify-center">
 
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#A6A6A6]">
-                <a href="#about" class="hover:text-[#F5F3EE] transition-colors">
-                    <span class="lang-en">About</span><span class="lang-bn">সম্পর্কে</span>
-                </a>
-                <a href="#skills" class="hover:text-[#F5F3EE] transition-colors">
-                    <span class="lang-en">Skills</span><span class="lang-bn">দক্ষতা</span>
-                </a>
-                <a href="#projects" class="hover:text-[#F5F3EE] transition-colors">
-                    <span class="lang-en">Projects</span><span class="lang-bn">প্রজেক্টসমূহ</span>
-                </a>
-                <a href="#experience" class="hover:text-[#F5F3EE] transition-colors">
-                    <span class="lang-en">Experience</span><span class="lang-bn">অভিজ্ঞতা</span>
-                </a>
-                <a href="#contact" class="hover:text-[#F5F3EE] transition-colors">
-                    <span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span>
-                </a>
-            </nav>
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 p-6 sm:p-10 lg:p-14 relative">
 
-            <div class="flex items-center gap-4">
-                <!-- Language Toggle Button -->
-                <button onclick="toggleLanguage()" id="langToggleBtn"
-                    class="px-3.5 py-1.5 rounded-md bg-[#1B1E21] border border-[#D9A441]/40 text-[#D9A441] text-xs font-semibold hover:bg-[#D9A441] hover:text-[#111315] transition-all">
-                    বাংলা
-                </button>
-            </div>
-        </div>
-    </header>
+            <!-- Header Navigation inside card -->
+            <header class="flex items-center justify-between mb-16">
+                <a href="#"
+                    class="text-2xl font-black tracking-wider text-orange-600 bg-orange-100 px-4 py-1.5 rounded-xl">MD
+                    SIAM</a>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center px-6 lg:px-16 pt-28 pb-20 bg-[#111315]">
-        <div
-            class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
-
-            <!-- Left Column: Content -->
-            <div class="lg:col-span-7 space-y-6 text-left">
-                <div
-                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#1B1E21] border border-[#D9A441]/30 text-[#D9A441] text-xs font-medium tracking-wide">
-                    <span class="w-1.5 h-1.5 rounded-full bg-[#D9A441]"></span>
-                    <span class="lang-en">Makkah, Saudi Arabia</span>
-                    <span class="lang-bn">মক্কা, সৌদি আরব</span>
-                </div>
-
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F5F3EE] leading-tight">
-                    <span class="lang-en">MD SIAM</span>
-                    <span class="lang-bn">এমডি সিয়াম</span>
-                </h1>
-
-                <p class="text-xl sm:text-2xl font-serif italic text-[#D9A441]">
-                    <span class="lang-en">Umrah Operations & Technology Professional</span>
-                    <span class="lang-bn">উমরাহ অপারেশনস ও টেকনোলজি প্রফেশনাল</span>
-                </p>
-
-                <p class="text-[#A6A6A6] text-base sm:text-lg max-w-2xl leading-relaxed font-light">
-                    <span class="lang-en">Specialized in Web Development, AI & Automation. Bridging real-world
-                        operational efficiency in travel and administrative workflows with modern digital
-                        solutions.</span>
-                    <span class="lang-bn">ওয়েব ডেভেলপমেন্ট, এআই এবং অটোমেশনে পারদর্শী। আধুনিক ডিজিটাল সলিউশনের মাধ্যমে
-                        ট্রাভেল ও অ্যাডমিনিস্ট্রেটিভ কার্যক্রমে বাস্তবসম্মত অপারেশনাল দক্ষতা নিশ্চিত করছি।</span>
-                </p>
-
-                <div class="flex flex-wrap items-center gap-4 pt-4">
-                    <a href="#projects"
-                        class="px-7 py-3.5 rounded-md bg-[#D9A441] text-[#111315] font-semibold text-sm hover:opacity-90 transition-all shadow-sm">
-                        <span class="lang-en">Explore Projects &rarr;</span><span class="lang-bn">প্রজেক্ট দেখুন
-                            &rarr;</span>
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                    <a href="#about" class="hover:text-orange-600 transition-colors">
+                        <span class="lang-en">About</span><span class="lang-bn">সম্পর্কে</span>
                     </a>
-                    <a href="#contact"
-                        class="px-7 py-3.5 rounded-md bg-[#1B1E21] border border-[#2A2E33] text-[#F5F3EE] font-semibold text-sm hover:border-[#D9A441]/50 transition-all">
-                        <span class="lang-en">Let's Connect</span><span class="lang-bn">যোগাযোগ করুন</span>
+                    <a href="#skills" class="hover:text-orange-600 transition-colors">
+                        <span class="lang-en">Skills</span><span class="lang-bn">দক্ষতা</span>
                     </a>
-                </div>
-            </div>
+                    <a href="#projects" class="hover:text-orange-600 transition-colors">
+                        <span class="lang-en">Projects</span><span class="lang-bn">প্রজেক্টসমূহ</span>
+                    </a>
+                    <a href="#experience" class="hover:text-orange-600 transition-colors">
+                        <span class="lang-en">Experience</span><span class="lang-bn">অভিজ্ঞতা</span>
+                    </a>
+                    <a href="#contact" class="hover:text-orange-600 transition-colors">
+                        <span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span>
+                    </a>
+                </nav>
 
-            <!-- Right Column: Personal Photo (Protected & Prominent) -->
-            <div class="lg:col-span-5 flex justify-center lg:justify-end">
-                <div
-                    class="relative w-full max-w-sm aspect-[4/5] rounded-xl overflow-hidden border border-[#2A2E33] bg-[#1B1E21] shadow-xl group">
-                    <img src="/siam-hero.jpg" alt="MD SIAM - Personal Portrait"
-                        onerror="this.onerror=null; this.src='https://placeholder.co/600x750/1B1E21/D9A441?text=MD+SIAM';"
-                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-102">
-                    <div class="absolute inset-0 border border-[#D9A441]/20 rounded-xl pointer-events-none"></div>
+                <div class="flex items-center gap-4">
+                    <!-- Language Toggle Button -->
+                    <button onclick="toggleLanguage()" id="langToggleBtn"
+                        class="px-4 py-2 rounded-xl bg-orange-50 border border-orange-200 text-orange-600 text-xs font-bold hover:bg-orange-600 hover:text-white transition-all">
+                        বাংলা
+                    </button>
                 </div>
+            </header>
+
+            <!-- Hero Section Grid -->
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+
+                <!-- Left Column: Content -->
+                <div class="lg:col-span-7 space-y-6">
+                    <p class="text-lg font-semibold text-orange-600">
+                        <span class="lang-en">Hi I'm</span><span class="lang-bn">হাই, আমি</span>
+                    </p>
+
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900">
+                        <span class="lang-en">MD SIAM</span>
+                        <span class="lang-bn">এমডি সিয়াম</span>
+                    </h1>
+
+                    <p class="text-xl sm:text-2xl font-bold text-gray-700">
+                        <span class="lang-en">Umrah Operations & Technology Professional</span>
+                        <span class="lang-bn">উমরাহ অপারেশনস ও টেকনোলজি প্রফেশনাল</span>
+                    </p>
+
+                    <p class="text-gray-500 text-base sm:text-lg max-w-xl leading-relaxed font-normal">
+                        <span class="lang-en">Specialized in Web Development, AI & Automation. Bridging real-world
+                            operational efficiency in travel and administrative workflows with modern digital
+                            solutions.</span>
+                        <span class="lang-bn">ওয়েব ডেভেলপমেন্ট, এআই এবং অটোমেশনে পারদর্শী। আধুনিক ডিজিটাল সলিউশনের
+                            মাধ্যমে ট্রাভেল ও অ্যাডমিনিস্ট্রেটিভ কার্যক্রমে বাস্তবসম্মত অপারেশনাল দক্ষতা নিশ্চিত
+                            করছি।</span>
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                        <a href="#projects"
+                            class="px-8 py-4 rounded-xl bg-orange-500 text-white font-bold text-sm hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/25">
+                            <span class="lang-en">Explore Projects</span><span class="lang-bn">প্রজেক্ট দেখুন</span>
+                        </a>
+                        <a href="#contact"
+                            class="px-8 py-4 rounded-xl border-2 border-orange-200 text-orange-600 font-bold text-sm hover:bg-orange-50 transition-all">
+                            <span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Personal Photo with Orange Circles Background -->
+                <div class="lg:col-span-5 flex justify-center relative">
+                    <!-- Background Orange Circles -->
+                    <div
+                        class="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-orange-500/90 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-0">
+                    </div>
+                    <div
+                        class="absolute w-64 h-64 sm:w-72 sm:h-72 rounded-full bg-orange-300/50 top-1/3 left-1/2 -translate-x-1/2 -z-0">
+                    </div>
+
+                    <!-- Portrait Photo Frame -->
+                    <div
+                        class="relative z-10 w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="/siam-hero.jpg" alt="MD SIAM - Personal Portrait"
+                            onerror="this.onerror=null; this.src='https://placeholder.co/600x750/ffedd5/c2410c?text=MD+SIAM';"
+                            class="w-full h-full object-cover object-top">
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Bottom Stats Bar (Like Reference Image) -->
+            <div
+                class="bg-gray-50 rounded-2xl p-6 sm:p-8 border border-gray-100 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-orange-500 flex items-center justify-center text-white text-2xl shadow-md shadow-orange-500/30">
+                        🏆
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-gray-900">4+ Years</h4>
+                        <p class="text-sm text-gray-500 font-medium">
+                            <span class="lang-en">Working Experience</span><span class="lang-bn">কাজের অভিজ্ঞতা</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-orange-500 flex items-center justify-center text-white text-2xl shadow-md shadow-orange-500/30">
+                        📁
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-gray-900">10+ Projects</h4>
+                        <p class="text-sm text-gray-500 font-medium">
+                            <span class="lang-en">Completed & Deployed</span><span class="lang-bn">সম্পন্ন ও
+                                ডিপ্লয়কৃত</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-14 h-14 rounded-2xl bg-orange-500 flex items-center justify-center text-white text-2xl shadow-md shadow-orange-500/30">
+                        🎧
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-gray-900">Online 24/7</h4>
+                        <p class="text-sm text-gray-500 font-medium">
+                            <span class="lang-en">Supports & Operations</span><span class="lang-bn">সাপোর্ট ও
+                                অপারেশনস</span>
+                        </p>
+                    </div>
+                </div>
+
             </div>
 
         </div>
-    </section>
+    </main>
 
     <!-- About Section -->
-    <section id="about" class="py-24 px-6 lg:px-16 bg-[#1B1E21]/50 border-t border-[#1B1E21]">
+    <section id="about" class="py-24 px-6 lg:px-16 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl lg:text-3xl font-bold text-[#F5F3EE] mb-6">
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
                 <span class="lang-en">About Me</span><span class="lang-bn">আমার সম্পর্কে</span>
             </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 text-[#A6A6A6] leading-relaxed font-light">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 text-gray-600 leading-relaxed">
                 <div class="space-y-4">
                     <p class="lang-en">I am a Saudi Arabia-based Umrah operations professional with hands-on experience
                         in customer service, travel operations, document processing, and administrative support.</p>
@@ -140,16 +193,16 @@
                     <p class="lang-bn">আমার পেশাগত কাজের পাশাপাশি আমি ওয়েব ডেভেলপমেন্ট, এআই টুলস এবং ওয়ার্কফ্লো অটোমেশনে
                         নিয়মিত দক্ষতা অর্জন করছি, পাইথন ফ্লাস্ক এবং নেক্সট.জেএস দিয়ে অ্যাপ তৈরি করছি।</p>
                 </div>
-                <div class="space-y-4 bg-[#1B1E21] p-6 rounded-xl border border-[#2A2E33]">
-                    <p class="text-[#F5F3EE] font-medium lang-en">My goal is to combine business knowledge and
-                        technology to build practical digital solutions that solve real-world problems.</p>
-                    <p class="text-[#F5F3EE] font-medium lang-bn">আমার লক্ষ্য হলো ব্যবসায়িক জ্ঞান ও প্রযুক্তির সমন্বয়ে
+                <div class="space-y-4 bg-orange-50/50 p-6 rounded-2xl border border-orange-100">
+                    <p class="text-gray-900 font-medium lang-en">My goal is to combine business knowledge and technology
+                        to build practical digital solutions that solve real-world problems.</p>
+                    <p class="text-gray-900 font-medium lang-bn">আমার লক্ষ্য হলো ব্যবসায়িক জ্ঞান ও প্রযুক্তির সমন্বয়ে
                         বাস্তব সমস্যার সমাধানমূলক ডিজিটাল সলিউশন তৈরি করা।</p>
                     <div class="pt-2">
-                        <h4 class="text-xs font-mono uppercase tracking-widest text-[#D9A441] mb-2">
+                        <h4 class="text-xs font-mono uppercase tracking-widest text-orange-600 mb-2">
                             <span class="lang-en">Philosophy</span><span class="lang-bn">দর্শন</span>
                         </h4>
-                        <p class="text-lg font-serif italic text-[#F5F3EE]">"Learn continuously. Build practically.
+                        <p class="text-lg font-serif italic text-gray-800">"Learn continuously. Build practically.
                             Improve consistently."</p>
                     </div>
                 </div>
@@ -158,16 +211,16 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 px-6 lg:px-16 border-t border-[#1B1E21]">
+    <section id="skills" class="py-20 px-6 lg:px-16 bg-gray-50 border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl lg:text-3xl font-bold text-[#F5F3EE] mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-12">
                 <span class="lang-en">Skills & Expertise</span><span class="lang-bn">দক্ষতা ও পারদর্শিতা</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33]">
-                    <h3 class="text-lg font-semibold text-[#D9A441] mb-4">&lt;/&gt; Web Development</h3>
-                    <ul class="space-y-2 text-sm text-[#A6A6A6] font-light">
+                <div class="p-6 rounded-2xl bg-white shadow-sm border border-gray-100">
+                    <h3 class="text-lg font-semibold text-orange-600 mb-4">&lt;/&gt; Web Development</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
                         <li>• HTML, CSS, JavaScript fundamentals</li>
                         <li>• React & Next.js</li>
                         <li>• Tailwind CSS & Python Flask</li>
@@ -175,9 +228,9 @@
                     </ul>
                 </div>
 
-                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33]">
-                    <h3 class="text-lg font-semibold text-[#D9A441] mb-4">⚡ AI & Automation</h3>
-                    <ul class="space-y-2 text-sm text-[#A6A6A6] font-light">
+                <div class="p-6 rounded-2xl bg-white shadow-sm border border-gray-100">
+                    <h3 class="text-lg font-semibold text-orange-600 mb-4">⚡ AI & Automation</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
                         <li>• AI-assisted development & Vibe Coding</li>
                         <li>• Antigravity CLI & MCP</li>
                         <li>• API integration fundamentals</li>
@@ -185,9 +238,9 @@
                     </ul>
                 </div>
 
-                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33]">
-                    <h3 class="text-lg font-semibold text-[#D9A441] mb-4">🕋 Umrah & Travel Operations</h3>
-                    <ul class="space-y-2 text-sm text-[#A6A6A6] font-light">
+                <div class="p-6 rounded-2xl bg-white shadow-sm border border-gray-100">
+                    <h3 class="text-lg font-semibold text-orange-600 mb-4">🕋 Umrah & Travel Operations</h3>
+                    <ul class="space-y-2 text-sm text-gray-600">
                         <li>• Customer Service & Client Handling</li>
                         <li>• Umrah Visa Documentation Support</li>
                         <li>• Flight & Hotel Coordination</li>
@@ -200,42 +253,42 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6 lg:px-16 bg-[#1B1E21]/50 border-t border-[#1B1E21]">
+    <section id="projects" class="py-20 px-6 lg:px-16 bg-white border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl lg:text-3xl font-bold text-[#F5F3EE] mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-12">
                 <span class="lang-en">Selected Projects</span><span class="lang-bn">নির্বাচিত প্রজেক্টসমূহ</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33] flex flex-col justify-between">
+                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col justify-between">
                     <div>
-                        <div class="text-xs font-mono text-[#D9A441] mb-2">PYTHON / FLASK</div>
-                        <h3 class="text-lg font-bold text-[#F5F3EE] mb-3">Famous Quotes Web App</h3>
-                        <p class="text-sm text-[#A6A6A6] font-light mb-6">A Python Flask website built for managing and
-                            displaying famous inspirational quotes.</p>
+                        <div class="text-xs font-mono text-orange-600 font-bold mb-2">PYTHON / FLASK</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Famous Quotes Web App</h3>
+                        <p class="text-sm text-gray-600 mb-6">A Python Flask website built for managing and displaying
+                            famous inspirational quotes.</p>
                     </div>
-                    <div class="text-xs font-mono text-[#A6A6A6] pt-4 border-t border-[#2A2E33]">Tech Stack: Python,
-                        Flask</div>
+                    <div class="text-xs font-mono text-gray-500 pt-4 border-t border-gray-200">Tech Stack: Python, Flask
+                    </div>
                 </div>
 
-                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33] flex flex-col justify-between">
+                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col justify-between">
                     <div>
-                        <div class="text-xs font-mono text-[#D9A441] mb-2">NEXT.JS / REACT</div>
-                        <h3 class="text-lg font-bold text-[#F5F3EE] mb-3">Iron & Habit — Fitness App</h3>
-                        <p class="text-sm text-[#A6A6A6] font-light mb-6">A modern Next.js fitness application
-                            engineered with habit tracking and a sleek UX.</p>
+                        <div class="text-xs font-mono text-orange-600 font-bold mb-2">NEXT.JS / REACT</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Iron & Habit — Fitness App</h3>
+                        <p class="text-sm text-gray-600 mb-6">A modern Next.js fitness application engineered with habit
+                            tracking and a sleek UX.</p>
                     </div>
-                    <div class="text-xs font-mono text-[#A6A6A6] pt-4 border-t border-[#2A2E33]">Tech Stack: Next.js,
+                    <div class="text-xs font-mono text-gray-500 pt-4 border-t border-gray-200">Tech Stack: Next.js,
                         Tailwind</div>
                 </div>
 
-                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33] flex flex-col justify-between">
+                <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100 flex flex-col justify-between">
                     <div>
-                        <div class="text-xs font-mono text-[#D9A441] mb-2">AUTOMATION</div>
-                        <h3 class="text-lg font-bold text-[#F5F3EE] mb-3">Downloads Automation</h3>
-                        <p class="text-sm text-[#A6A6A6] font-light mb-6">A PowerShell workflow designed to organize
-                            downloaded files automatically via Task Scheduler.</p>
+                        <div class="text-xs font-mono text-orange-600 font-bold mb-2">AUTOMATION</div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Downloads Automation</h3>
+                        <p class="text-sm text-gray-600 mb-6">A PowerShell workflow designed to organize downloaded
+                            files automatically via Task Scheduler.</p>
                     </div>
-                    <div class="text-xs font-mono text-[#A6A6A6] pt-4 border-t border-[#2A2E33]">Tech Stack: PowerShell
+                    <div class="text-xs font-mono text-gray-500 pt-4 border-t border-gray-200">Tech Stack: PowerShell
                     </div>
                 </div>
             </div>
@@ -243,27 +296,27 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 px-6 lg:px-16 border-t border-[#1B1E21]">
+    <section id="experience" class="py-20 px-6 lg:px-16 bg-gray-50 border-t border-gray-100">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-2xl lg:text-3xl font-bold text-[#F5F3EE] mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-12">
                 <span class="lang-en">Professional Experience</span><span class="lang-bn">পেশাগত অভিজ্ঞতা</span>
             </h2>
 
             <div class="space-y-8 max-w-4xl">
 
-                <div class="p-8 rounded-xl bg-[#1B1E21] border border-[#2A2E33]">
+                <div class="p-8 rounded-2xl bg-white shadow-sm border border-gray-100">
                     <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
                         <div>
-                            <h3 class="text-lg font-bold text-[#D9A441]">IT Professional & Technical & Umrah / Hajj
+                            <h3 class="text-lg font-bold text-orange-600">IT Professional & Technical & Umrah / Hajj
                                 Operations Specialist</h3>
-                            <p class="text-sm text-[#F5F3EE]">Technical Support & Travel Operations</p>
+                            <p class="text-sm text-gray-700">Technical Support & Travel Operations</p>
                         </div>
                         <span
-                            class="px-3 py-1 rounded-md bg-[#D9A441]/10 border border-[#D9A441]/20 text-[#D9A441] text-xs font-mono">
+                            class="px-3 py-1 rounded-xl bg-orange-50 border border-orange-200 text-orange-600 text-xs font-mono font-bold">
                             Makkah, Saudi Arabia
                         </span>
                     </div>
-                    <ul class="space-y-2 text-sm text-[#A6A6A6] font-light">
+                    <ul class="space-y-2 text-sm text-gray-600">
                         <li>• 4+ years of experience in computer systems, technical support, troubleshooting, and data
                             management.</li>
                         <li>• Skilled in Microsoft Excel, reporting, Windows automation, and digital documentation.</li>
@@ -276,12 +329,12 @@
                     </ul>
                 </div>
 
-                <div class="p-8 rounded-xl bg-[#1B1E21] border border-[#2A2E33]">
+                <div class="p-8 rounded-2xl bg-white shadow-sm border border-gray-100">
                     <div class="mb-4">
-                        <h3 class="text-lg font-bold text-[#D9A441]">Independent Web Development & Automation</h3>
-                        <p class="text-sm text-[#F5F3EE]">Personal & Client Projects</p>
+                        <h3 class="text-lg font-bold text-orange-600">Independent Web Development & Automation</h3>
+                        <p class="text-sm text-gray-700">Personal & Client Projects</p>
                     </div>
-                    <ul class="space-y-2 text-sm text-[#A6A6A6] font-light">
+                    <ul class="space-y-2 text-sm text-gray-600">
                         <li>• Architect and build practical, modern web applications.</li>
                         <li>• Explore and implement AI-assisted development tools and workflows.</li>
                         <li>• Automate repetitive computer and operational tasks to optimize productivity.</li>
@@ -293,23 +346,23 @@
         </div>
     </section>
 
-    <!-- Contact Section (Restored at the Bottom) -->
-    <section id="contact" class="py-24 px-6 lg:px-16 bg-[#1B1E21]/50 border-t border-[#1B1E21]">
-        <div class="max-w-4xl mx-auto text-center space-y-6">
-            <h2 class="text-3xl font-bold text-[#F5F3EE]">
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 lg:px-16 bg-white border-t border-gray-100 text-center">
+        <div class="max-w-4xl mx-auto space-y-6">
+            <h2 class="text-3xl font-bold text-gray-900">
                 <span class="lang-en">Let's Connect</span><span class="lang-bn">যোগাযোগ করুন</span>
             </h2>
-            <p class="text-[#A6A6A6] font-light">"I believe technology becomes valuable when it solves real problems."
+            <p class="text-gray-500 font-normal">"I believe technology becomes valuable when it solves real problems."
             </p>
             <a href="mailto:contact@example.com"
-                class="inline-block px-8 py-4 rounded-md bg-[#D9A441] text-[#111315] font-bold hover:opacity-90 transition-all shadow-sm">
+                class="inline-block px-8 py-4 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition-all shadow-lg shadow-orange-500/25">
                 <span class="lang-en">Send a Message</span><span class="lang-bn">মেসেজ পাঠান</span>
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-6 text-center border-t border-[#1B1E21] text-xs text-[#A6A6A6]">
+    <footer class="py-8 px-6 text-center border-t border-gray-200 text-xs text-gray-500 bg-gray-50">
         <p>&copy; 2026 MD SIAM. All rights reserved. • Makkah, Saudi Arabia</p>
     </footer>
 
