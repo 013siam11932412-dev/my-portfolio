@@ -4,16 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD SIAM - Umrah Operations & AI Web Developer</title>
+    <title>MD SIAM — Umrah Operations & Technology Professional</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
         rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
             font-family: 'Inter', 'Hind Siliguri', sans-serif;
+            background-color: #111315;
+            color: #F5F3EE;
         }
 
         .font-serif {
@@ -26,24 +29,24 @@
     </style>
 </head>
 
-<body class="bg-neutral-950 text-neutral-100 font-sans antialiased selection:bg-amber-500 selection:text-neutral-950">
+<body class="bg-[#111315] text-[#F5F3EE] font-sans antialiased selection:bg-[#D9A441] selection:text-[#111315]">
 
     <!-- Header Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800/60">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-[#111315]/90 backdrop-blur-md border-b border-[#1B1E21]">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-wider text-amber-400 font-serif">MD SIAM</a>
+            <a href="#" class="text-xl font-bold tracking-wider text-[#D9A441] font-serif">MD SIAM</a>
 
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-300">
-                <a href="#about" class="hover:text-amber-400 transition-colors">
-                    <span class="lang-en">About Me</span><span class="lang-bn">আমার সম্পর্কে</span>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-[#A6A6A6]">
+                <a href="#about" class="hover:text-[#F5F3EE] transition-colors">
+                    <span class="lang-en">About</span><span class="lang-bn">সম্পর্কে</span>
                 </a>
-                <a href="#skills" class="hover:text-amber-400 transition-colors">
+                <a href="#skills" class="hover:text-[#F5F3EE] transition-colors">
                     <span class="lang-en">Skills</span><span class="lang-bn">দক্ষতা</span>
                 </a>
-                <a href="#projects" class="hover:text-amber-400 transition-colors">
+                <a href="#projects" class="hover:text-[#F5F3EE] transition-colors">
                     <span class="lang-en">Projects</span><span class="lang-bn">প্রজেক্টসমূহ</span>
                 </a>
-                <a href="#experience" class="hover:text-amber-400 transition-colors">
+                <a href="#experience" class="hover:text-[#F5F3EE] transition-colors">
                     <span class="lang-en">Experience</span><span class="lang-bn">অভিজ্ঞতা</span>
                 </a>
             </nav>
@@ -51,83 +54,66 @@
             <div class="flex items-center gap-4">
                 <!-- Language Toggle Button -->
                 <button onclick="toggleLanguage()" id="langToggleBtn"
-                    class="px-3.5 py-1.5 rounded-lg bg-neutral-900 border border-amber-500/40 text-amber-400 text-xs font-semibold hover:bg-amber-500 hover:text-neutral-950 transition-all">
+                    class="px-3.5 py-1.5 rounded-md bg-[#1B1E21] border border-[#D9A441]/40 text-[#D9A441] text-xs font-semibold hover:bg-[#D9A441] hover:text-[#111315] transition-all">
                     বাংলা
                 </button>
-                <a href="#contact"
-                    class="hidden sm:inline-block px-4 py-2 rounded-lg bg-amber-500 text-neutral-950 font-semibold text-sm hover:bg-amber-400 transition-all">
-                    <span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span>
-                </a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center px-6 lg:px-16 pt-28 pb-20 overflow-hidden">
-        <div class="absolute top-1/4 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl pointer-events-none">
-        </div>
+    <section class="relative min-h-screen flex items-center justify-center px-6 lg:px-16 pt-28 pb-20 bg-[#111315]">
+        <div
+            class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
 
-        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-
+            <!-- Left Column: Content -->
             <div class="lg:col-span-7 space-y-6 text-left">
                 <div
-                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 border border-amber-500/30 text-amber-400 text-xs font-medium tracking-wide">
-                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-                    <span class="lang-en">BUILD • INNOVATE • SERVE</span>
-                    <span class="lang-bn">তৈরি করুন • উদ্ভাবন করুন • সেবা দিন</span>
+                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-[#1B1E21] border border-[#D9A441]/30 text-[#D9A441] text-xs font-medium tracking-wide">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#D9A441]"></span>
+                    <span class="lang-en">Makkah, Saudi Arabia</span>
+                    <span class="lang-bn">মক্কা, সৌদি আরব</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
-                    <span class="lang-en">Umrah Operations Professional <br><span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Web
-                            Developer & AI Practitioner</span></span>
-                    <span class="lang-bn">উমরাহ অপারেশনস প্রফেশনাল <br><span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">ওয়েব
-                            ডেভেলপার ও এআই প্র্যাকটিশনার</span></span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#F5F3EE] leading-tight">
+                    <span class="lang-en">MD SIAM</span>
+                    <span class="lang-bn">এমডি সিয়াম</span>
                 </h1>
 
-                <p class="text-neutral-400 text-base sm:text-lg max-w-2xl leading-relaxed font-light">
-                    <span class="lang-en">I combine real-world Umrah operations experience with modern web technologies
-                        and AI-powered solutions to make everyday business processes smarter, simpler, and more
-                        efficient.</span>
-                    <span class="lang-bn">আমি বাস্তব উমরাহ অপারেশনস অভিজ্ঞতার সাথে আধুনিক ওয়েব প্রযুক্তি এবং এআই-চালিত
-                        সমাধান যুক্ত করে দৈনন্দিন ব্যবসায়িক প্রক্রিয়াগুলোকে আরও স্মার্ট ও সহজ করে তুলি।</span>
+                <p class="text-xl sm:text-2xl font-serif italic text-[#D9A441]">
+                    <span class="lang-en">Umrah Operations & Technology Professional</span>
+                    <span class="lang-bn">উমরাহ অপারেশনস ও টেকনোলজি প্রফেশনাল</span>
+                </p>
+
+                <p class="text-[#A6A6A6] text-base sm:text-lg max-w-2xl leading-relaxed font-light">
+                    <span class="lang-en">Specialized in Web Development, AI & Automation. Bridging real-world
+                        operational efficiency in travel and administrative workflows with modern digital
+                        solutions.</span>
+                    <span class="lang-bn">ওয়েব ডেভেলপমেন্ট, এআই এবং অটোমেশনে পারদর্শী। আধুনিক ডিজিটাল সলিউশনের মাধ্যমে
+                        ট্রাভেল ও অ্যাডমিনিস্ট্রেটিভ কার্যক্রমে বাস্তবসম্মত অপারেশনাল দক্ষতা নিশ্চিত করছি।</span>
                 </p>
 
                 <div class="flex flex-wrap items-center gap-4 pt-4">
                     <a href="#projects"
-                        class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-neutral-950 font-semibold text-sm hover:opacity-90 transition-all shadow-lg shadow-amber-500/20">
+                        class="px-7 py-3.5 rounded-md bg-[#D9A441] text-[#111315] font-semibold text-sm hover:opacity-90 transition-all shadow-sm">
                         <span class="lang-en">Explore Projects &rarr;</span><span class="lang-bn">প্রজেক্ট দেখুন
                             &rarr;</span>
                     </a>
-                    <a href="#contact"
-                        class="px-7 py-3.5 rounded-xl bg-neutral-900 border border-neutral-800 text-neutral-200 font-semibold text-sm hover:bg-neutral-800 hover:border-neutral-700 transition-all">
-                        <span class="lang-en">Let's Connect</span><span class="lang-bn">যোগাযোগ করুন</span>
+                    <a href="#experience"
+                        class="px-7 py-3.5 rounded-md bg-[#1B1E21] border border-[#2A2E33] text-[#F5F3EE] font-semibold text-sm hover:border-[#D9A441]/50 transition-all">
+                        <span class="lang-en">View Experience</span><span class="lang-bn">অভিজ্ঞতা দেখুন</span>
                     </a>
                 </div>
             </div>
 
-            <!-- Hero Image with Glassmorphism Card -->
+            <!-- Right Column: Personal Photo (Protected & Prominent) -->
             <div class="lg:col-span-5 flex justify-center lg:justify-end">
                 <div
-                    class="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden border border-amber-500/30 shadow-2xl group bg-neutral-900/80">
-                    <img src="/siam-hero.jpg" alt="MD SIAM"
-                        onerror="this.onerror=null; this.src='https://placeholder.co/600x750/151515/FF8A00?text=MD+SIAM';"
-                        class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent opacity-80">
-                    </div>
-                    <div
-                        class="absolute inset-0 border-2 border-amber-500/20 rounded-3xl pointer-events-none group-hover:border-amber-500/50 transition-colors duration-500">
-                    </div>
-
-                    <div
-                        class="absolute bottom-6 right-6 z-20 bg-neutral-950/70 backdrop-blur-md px-6 py-3.5 rounded-2xl border border-amber-500/30 border-r-2 border-r-amber-500 shadow-2xl">
-                        <h3 class="font-serif italic text-2xl text-amber-400 font-semibold tracking-wider">Md. Siam</h3>
-                        <p class="text-[11px] font-sans text-neutral-300 tracking-wider mt-0.5 uppercase font-light">IT
-                            Professional & Umrah Operations</p>
-                    </div>
+                    class="relative w-full max-w-sm aspect-[4/5] rounded-xl overflow-hidden border border-[#2A2E33] bg-[#1B1E21] shadow-xl group">
+                    <img src="/siam-hero.jpg" alt="MD SIAM - Personal Portrait"
+                        onerror="this.onerror=null; this.src='https://placeholder.co/600x750/1B1E21/D9A441?text=MD+SIAM';"
+                        class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-102">
+                    <div class="absolute inset-0 border border-[#D9A441]/20 rounded-xl pointer-events-none"></div>
                 </div>
             </div>
 
@@ -135,17 +121,12 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24 px-6 lg:px-16 bg-neutral-900/40 border-t border-neutral-900">
+    <section id="about" class="py-24 px-6 lg:px-16 bg-[#1B1E21]/50 border-t border-[#1B1E21]">
         <div class="max-w-7xl mx-auto">
-            <div
-                class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-neutral-900 border border-amber-500/20 text-amber-400 text-xs font-medium tracking-wide mb-4">
-                <span class="lang-en">ABOUT ME</span><span class="lang-bn">আমার সম্পর্কে</span>
-            </div>
-            <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
-                <span class="lang-en">Bridging Operations & Digital Innovation</span>
-                <span class="lang-bn">অপারেশনস এবং ডিজিটাল উদ্ভাবনের সেতুবন্ধন</span>
+            <h2 class="text-2xl lg:text-3xl font-bold text-[#F5F3EE] mb-6">
+                <span class="lang-en">About Me</span><span class="lang-bn">আমার সম্পর্কে</span>
             </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 text-neutral-300 leading-relaxed font-light">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 text-[#A6A6A6] leading-relaxed font-light">
                 <div class="space-y-4">
                     <p class="lang-en">I am a Saudi Arabia-based Umrah operations professional with hands-on experience
                         in customer service, travel operations, document processing, and administrative support.</p>
@@ -157,17 +138,17 @@
                     <p class="lang-bn">আমার পেশাগত কাজের পাশাপাশি আমি ওয়েব ডেভেলপমেন্ট, এআই টুলস এবং ওয়ার্কফ্লো অটোমেশনে
                         নিয়মিত দক্ষতা অর্জন করছি, পাইথন ফ্লাস্ক এবং নেক্সট.জেএস দিয়ে অ্যাপ তৈরি করছি।</p>
                 </div>
-                <div class="space-y-4 bg-neutral-900/60 p-6 rounded-2xl border border-neutral-800/80">
-                    <p class="text-neutral-200 font-medium lang-en">My goal is to combine business knowledge and
+                <div class="space-y-4 bg-[#1B1E21] p-6 rounded-xl border border-[#2A2E33]">
+                    <p class="text-[#F5F3EE] font-medium lang-en">My goal is to combine business knowledge and
                         technology to build practical digital solutions that solve real-world problems.</p>
-                    <p class="text-neutral-200 font-medium lang-bn">আমার লক্ষ্য হলো ব্যবসায়িক জ্ঞান ও প্রযুক্তির সমন্বয়ে
+                    <p class="text-[#F5F3EE] font-medium lang-bn">আমার লক্ষ্য হলো ব্যবসায়িক জ্ঞান ও প্রযুক্তির সমন্বয়ে
                         বাস্তব সমস্যার সমাধানমূলক ডিজিটাল সলিউশন তৈরি করা।</p>
                     <div class="pt-2">
-                        <h4 class="text-xs font-mono uppercase tracking-widest text-amber-400 mb-2">
-                            <span class="lang-en">My Philosophy</span><span class="lang-bn">আমার দর্শন</span>
+                        <h4 class="text-xs font-mono uppercase tracking-widest text-[#D9A441] mb-2">
+                            <span class="lang-en">Philosophy</span><span class="lang-bn">দর্শন</span>
                         </h4>
-                        <p class="text-lg font-serif italic text-white">"Learn continuously. Build practically. Improve
-                            consistently."</p>
+                        <p class="text-lg font-serif italic text-[#F5F3EE]">"Learn continuously. Build practically.
+                            Improve consistently."</p>
                     </div>
                 </div>
             </div>
@@ -175,16 +156,16 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 px-6 lg:px-16 border-t border-neutral-900">
+    <section id="skills" class="py-20 px-6 lg:px-16 border-t border-[#1B1E21]">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-[#F5F3EE] mb-12">
                 <span class="lang-en">Skills & Expertise</span><span class="lang-bn">দক্ষতা ও পারদর্শিতা</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
-                    <h3 class="text-xl font-semibold text-amber-400 mb-4">&lt;/&gt; Web Development</h3>
-                    <ul class="space-y-2 text-sm text-neutral-400 font-light">
+                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33]">
+                    <h3 class="text-lg font-semibold text-[#D9A441] mb-4">&lt;/&gt; Web Development</h3>
+                    <ul class="space-y-2 text-sm text-[#A6A6A6] font-light">
                         <li>• HTML, CSS, JavaScript fundamentals</li>
                         <li>• React & Next.js</li>
                         <li>• Tailwind CSS & Python Flask</li>
@@ -192,9 +173,9 @@
                     </ul>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
-                    <h3 class="text-xl font-semibold text-amber-400 mb-4">⚡ AI & Automation</h3>
-                    <ul class="space-y-2 text-sm text-neutral-400 font-light">
+                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33]">
+                    <h3 class="text-lg font-semibold text-[#D9A441] mb-4">⚡ AI & Automation</h3>
+                    <ul class="space-y-2 text-sm text-[#A6A6A6] font-light">
                         <li>• AI-assisted development & Vibe Coding</li>
                         <li>• Antigravity CLI & MCP</li>
                         <li>• API integration fundamentals</li>
@@ -202,9 +183,9 @@
                     </ul>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
-                    <h3 class="text-xl font-semibold text-amber-400 mb-4">🕋 Umrah & Travel Operations</h3>
-                    <ul class="space-y-2 text-sm text-neutral-400 font-light">
+                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33]">
+                    <h3 class="text-lg font-semibold text-[#D9A441] mb-4">🕋 Umrah & Travel Operations</h3>
+                    <ul class="space-y-2 text-sm text-[#A6A6A6] font-light">
                         <li>• Customer Service & Client Handling</li>
                         <li>• Umrah Visa Documentation Support</li>
                         <li>• Flight & Hotel Coordination</li>
@@ -217,76 +198,70 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6 lg:px-16 bg-neutral-900/40 border-t border-neutral-900">
+    <section id="projects" class="py-20 px-6 lg:px-16 bg-[#1B1E21]/50 border-t border-[#1B1E21]">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-[#F5F3EE] mb-12">
                 <span class="lang-en">Selected Projects</span><span class="lang-bn">নির্বাচিত প্রজেক্টসমূহ</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between">
+                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33] flex flex-col justify-between">
                     <div>
-                        <div class="text-xs font-mono text-amber-400 mb-2">PYTHON / FLASK</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Famous Quotes Web App</h3>
-                        <p class="text-sm text-neutral-400 font-light mb-6">A Python Flask website built for managing
-                            and displaying famous inspirational quotes.</p>
+                        <div class="text-xs font-mono text-[#D9A441] mb-2">PYTHON / FLASK</div>
+                        <h3 class="text-lg font-bold text-[#F5F3EE] mb-3">Famous Quotes Web App</h3>
+                        <p class="text-sm text-[#A6A6A6] font-light mb-6">A Python Flask website built for managing and
+                            displaying famous inspirational quotes.</p>
                     </div>
-                    <div class="text-xs font-mono text-neutral-500 pt-4 border-t border-neutral-800">Tech Stack: Python,
+                    <div class="text-xs font-mono text-[#A6A6A6] pt-4 border-t border-[#2A2E33]">Tech Stack: Python,
                         Flask</div>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between">
+                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33] flex flex-col justify-between">
                     <div>
-                        <div class="text-xs font-mono text-amber-400 mb-2">NEXT.JS / REACT</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Iron & Habit — Fitness App</h3>
-                        <p class="text-sm text-neutral-400 font-light mb-6">A modern Next.js fitness application
+                        <div class="text-xs font-mono text-[#D9A441] mb-2">NEXT.JS / REACT</div>
+                        <h3 class="text-lg font-bold text-[#F5F3EE] mb-3">Iron & Habit — Fitness App</h3>
+                        <p class="text-sm text-[#A6A6A6] font-light mb-6">A modern Next.js fitness application
                             engineered with habit tracking and a sleek UX.</p>
                     </div>
-                    <div class="text-xs font-mono text-neutral-500 pt-4 border-t border-neutral-800">Tech Stack:
-                        Next.js, Tailwind</div>
+                    <div class="text-xs font-mono text-[#A6A6A6] pt-4 border-t border-[#2A2E33]">Tech Stack: Next.js,
+                        Tailwind</div>
                 </div>
 
-                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800 flex flex-col justify-between">
+                <div class="p-6 rounded-xl bg-[#1B1E21] border border-[#2A2E33] flex flex-col justify-between">
                     <div>
-                        <div class="text-xs font-mono text-amber-400 mb-2">AUTOMATION</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Downloads Automation</h3>
-                        <p class="text-sm text-neutral-400 font-light mb-6">A PowerShell workflow designed to organize
+                        <div class="text-xs font-mono text-[#D9A441] mb-2">AUTOMATION</div>
+                        <h3 class="text-lg font-bold text-[#F5F3EE] mb-3">Downloads Automation</h3>
+                        <p class="text-sm text-[#A6A6A6] font-light mb-6">A PowerShell workflow designed to organize
                             downloaded files automatically via Task Scheduler.</p>
                     </div>
-                    <div class="text-xs font-mono text-neutral-500 pt-4 border-t border-neutral-800">Tech Stack:
-                        PowerShell</div>
+                    <div class="text-xs font-mono text-[#A6A6A6] pt-4 border-t border-[#2A2E33]">Tech Stack: PowerShell
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-
-    <!-- Footer -->
-    <footer class="py-8 px-6 text-center border-t border-neutral-900 text-xs text-neutral-500">
-        <p>&copy; 2026 MD SIAM. All rights reserved. • Makkah, Saudi Arabia</p>
-    </footer>
     <!-- Experience Section -->
-    <section id="experience" class="py-20 px-6 lg:px-16 border-t border-neutral-900">
+    <section id="experience" class="py-20 px-6 lg:px-16 border-t border-[#1B1E21]">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold text-white mb-12">
+            <h2 class="text-2xl lg:text-3xl font-bold text-[#F5F3EE] mb-12">
                 <span class="lang-en">Professional Experience</span><span class="lang-bn">পেশাগত অভিজ্ঞতা</span>
             </h2>
 
             <div class="space-y-8 max-w-4xl">
 
-                <!-- Exp 1: IT Professional & Operations Specialist -->
-                <div class="p-8 rounded-2xl bg-neutral-900 border border-neutral-800">
+                <div class="p-8 rounded-xl bg-[#1B1E21] border border-[#2A2E33]">
                     <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
                         <div>
-                            <h3 class="text-xl font-bold text-amber-400">IT Professional & Technical & Umrah / Hajj
+                            <h3 class="text-lg font-bold text-[#D9A441]">IT Professional & Technical & Umrah / Hajj
                                 Operations Specialist</h3>
-                            <p class="text-sm text-neutral-300">Technical Support & Travel Operations</p>
+                            <p class="text-sm text-[#F5F3EE]">Technical Support & Travel Operations</p>
                         </div>
                         <span
-                            class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-mono">
+                            class="px-3 py-1 rounded-md bg-[#D9A441]/10 border border-[#D9A441]/20 text-[#D9A441] text-xs font-mono">
                             Makkah, Saudi Arabia
                         </span>
                     </div>
-                    <ul class="space-y-2 text-sm text-neutral-400 font-light">
+                    <ul class="space-y-2 text-sm text-[#A6A6A6] font-light">
                         <li>• 4+ years of experience in computer systems, technical support, troubleshooting, and data
                             management.</li>
                         <li>• Skilled in Microsoft Excel, reporting, Windows automation, and digital documentation.</li>
@@ -299,13 +274,12 @@
                     </ul>
                 </div>
 
-                <!-- Exp 2 -->
-                <div class="p-8 rounded-2xl bg-neutral-900 border border-neutral-800">
+                <div class="p-8 rounded-xl bg-[#1B1E21] border border-[#2A2E33]">
                     <div class="mb-4">
-                        <h3 class="text-xl font-bold text-amber-400">Independent Web Development & Automation</h3>
-                        <p class="text-sm text-neutral-300">Personal & Client Projects</p>
+                        <h3 class="text-lg font-bold text-[#D9A441]">Independent Web Development & Automation</h3>
+                        <p class="text-sm text-[#F5F3EE]">Personal & Client Projects</p>
                     </div>
-                    <ul class="space-y-2 text-sm text-neutral-400 font-light">
+                    <ul class="space-y-2 text-sm text-[#A6A6A6] font-light">
                         <li>• Architect and build practical, modern web applications.</li>
                         <li>• Explore and implement AI-assisted development tools and workflows.</li>
                         <li>• Automate repetitive computer and operational tasks to optimize productivity.</li>
@@ -316,20 +290,12 @@
             </div>
         </div>
     </section>
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 lg:px-16 bg-neutral-900/40 border-t border-neutral-900">
-        <div class="max-w-4xl mx-auto text-center space-y-6">
-            <h2 class="text-3xl font-bold text-white">
-                <span class="lang-en">Let's Connect</span><span class="lang-bn">যোগাযোগ করুন</span>
-            </h2>
-            <p class="text-neutral-300 font-light">"I believe technology becomes valuable when it solves real problems."
-            </p>
-            <a href="mailto:contact@example.com"
-                class="inline-block px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-neutral-950 font-bold hover:opacity-90 transition-all shadow-lg shadow-amber-500/20">
-                <span class="lang-en">Send a Message</span><span class="lang-bn">মেসেজ পাঠান</span>
-            </a>
-        </div>
-    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 text-center border-t border-[#1B1E21] text-xs text-[#A6A6A6]">
+        <p>&copy; 2026 MD SIAM. All rights reserved. • Makkah, Saudi Arabia</p>
+    </footer>
+
     <!-- Language Toggle Script -->
     <script>
         let currentLang = 'en';
@@ -339,7 +305,6 @@
             document.querySelectorAll('.lang-bn').forEach(el => el.style.display = currentLang === 'bn' ? 'inline' : 'none');
             document.getElementById('langToggleBtn').innerText = currentLang === 'en' ? 'বাংলা' : 'English';
         }
-        // Initialize default view
         document.querySelectorAll('.lang-bn').forEach(el => el.style.display = 'none');
     </script>
 </body>
