@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Siam - IT Professional & Umrah Operations</title>
+    <title>Md. Siam - IT Professional & Umrah Operations Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,24 @@
 
 <body class="bg-neutral-950 text-neutral-100 font-sans antialiased selection:bg-amber-500 selection:text-neutral-950">
 
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-neutral-950/80 backdrop-blur-md border-b border-neutral-800/60">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-wider text-amber-400">MD SIAM</a>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-300">
+                <a href="#about" class="hover:text-amber-400 transition-colors">About Me</a>
+                <a href="#skills" class="hover:text-amber-400 transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-amber-400 transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-amber-400 transition-colors">Experience</a>
+                <a href="#contact"
+                    class="px-4 py-2 rounded-lg bg-amber-500 text-neutral-950 font-semibold hover:bg-amber-400 transition-all">Quick
+                    Contact</a>
+            </nav>
+        </div>
+    </header>
+
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center px-6 lg:px-16 py-20 overflow-hidden">
+    <section class="relative min-h-screen flex items-center justify-center px-6 lg:px-16 pt-28 pb-20 overflow-hidden">
 
         <!-- Ambient Light Accents -->
         <div class="absolute top-1/4 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -87,7 +103,7 @@
 
                     <!-- Main Hero Image -->
                     <img src="/siam-hero.jpg" alt="MD Siam"
-                        onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800';"
+                        onerror="this.onerror=null; this.src='https://placeholder.co/600x750/151515/FF8A00?text=MD+Siam';"
                         class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105">
 
                     <!-- Gradient Overlay -->
@@ -118,6 +134,60 @@
 
         </div>
     </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 lg:px-16 bg-neutral-900/40 border-t border-neutral-900">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-6">About Me</h2>
+            <p class="text-neutral-400 max-w-3xl leading-relaxed">
+                Dedicated IT Professional and AI Application Developer specializing in automating workflow management
+                and optimizing Umrah & Hajj operations. Skilled in building full-stack web applications, managing large
+                passenger databases, and delivering customized digital solutions.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 lg:px-16 border-t border-neutral-900">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-10">Technical & Operational Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+                    <h3 class="text-xl font-semibold text-amber-400 mb-3">Software & AI Development</h3>
+                    <p class="text-sm text-neutral-400">Full-Stack Web Apps, HTML/CSS/JavaScript, Tailwind CSS, AI API
+                        Integration & Messaging Workflows.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+                    <h3 class="text-xl font-semibold text-amber-400 mb-3">Umrah & Hajj Operations</h3>
+                    <p class="text-sm text-neutral-400">Passenger Data Management, Visa Processing Documentation, Group
+                        Ticketing & Hotel Logistics.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-neutral-900 border border-neutral-800">
+                    <h3 class="text-xl font-semibold text-amber-400 mb-3">Financial Reporting & IT Systems</h3>
+                    <p class="text-sm text-neutral-400">Advanced Excel Accounting, POS & Ledger Tracking Systems, IT
+                        Infrastructure Management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 lg:px-16 bg-neutral-900/40 border-t border-neutral-900">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-white mb-4">Get In Touch</h2>
+            <p class="text-neutral-400 mb-8 max-w-xl mx-auto">Ready to collaborate on AI software projects or streamline
+                travel operations? Feel free to reach out!</p>
+            <a href="mailto:contact@example.com"
+                class="inline-block px-8 py-4 rounded-xl bg-amber-500 text-neutral-950 font-bold hover:bg-amber-400 transition-all">
+                Send a Message
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 text-center border-t border-neutral-900 text-xs text-neutral-500">
+        <p>&copy; 2026 Md. Siam. All rights reserved.</p>
+    </footer>
 
 </body>
 
