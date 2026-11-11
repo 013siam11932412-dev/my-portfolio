@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="bn" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MD Siam | App Developer & Travel Operations Specialist</title>
+    
+    <!-- Meta Descriptions & SEO -->
+    <meta name="description" content="MD Siam - App Developer & Travel Operations Specialist. Blending software development with real-world travel and Umrah business operations.">
+    <meta property="og:title" content="MD Siam | Portfolio">
+    <meta property="og:description" content="App Developer & Travel Operations Specialist based in Saudi Arabia.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: 'var(--bg-main)',
+                        darkCard: 'var(--bg-card)',
+                        darkBorder: 'var(--border-color)',
+                        accent: '#FF7838',
+                        accentHover: '#FFAA75',
+                        textMain: 'var(--text-main)',
+                        textMuted: 'var(--text-muted)'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Three.js for Visual Background -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <style>
+        /* CSS Variables for Dynamic Dark & Light Mode Switching */
+        :root {
+            --bg-main: #101010;
+            --bg-card: #1A1A1A;
+            --border-color: #282828;
+            --text-main: #F5F2EE;
+            --text-muted: #A5A09B;
+        }
+
+        html.light {
+            --bg-main: #FAFAFA;
+            --bg-card: #FFFFFF;
+            --border-color: #E5E7EB;
+            --text-main: #111827;
+            --text-muted: #6B7280;
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF7838;
+        }
+
+        /* Image Blend Effect */
+        .blend-image {
+            mix-blend-mode: luminosity;
+            transition: all 0.5s ease;
+        }
+        .blend-image:hover {
+            mix-blend-mode: normal;
+            transform: scale(1.02);
+        }
+
+        /* Canvas Overlay */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+
+    <!-- Structured JSON-LD Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "MD Siam",
+      "jobTitle": "AI App Developer & Umrah / Hajj Operations Specialist",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Umrah & Hajj Travel Industry, Saudi Arabia"
+      },
+      "url": "https://013siam11932412-dev.github.io"
+    }
+    </script>
+</head>
+<body class="bg-darkBg text-textMain font-sans antialiased selection:bg-accent selection:text-darkBg min-h-screen">
+
+    <!-- Accessibility Skip to Main Content Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 bg-accent text-darkBg font-bold rounded-lg shadow-lg">
+        Skip to main content
+    </a>
+
+    <!-- Sticky Navigation Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-darkBg/90 backdrop-blur-md border-b border-darkBorder transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="text-xl sm:text-2xl font-bold font-heading text-textMain flex items-center gap-2 group">
+                <span class="w-3 h-3 rounded-full bg-accent group-hover:scale-125 transition-transform duration-300"></span>
+                <span class="tracking-wide">MD SIAM</span>
+            </a>
+            
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-textMuted">
+                <a href="#about" class="hover:text-accent transition-colors" data-i18n="nav-about">About Me</a>
+                <a href="#skills" class="hover:text-accent transition-colors" data-i18n="nav-skills">Skills</a>
+                <a href="#projects" class="hover:text-accent transition-colors" data-i18n="nav-projects">Projects</a>
+                <a href="#experience" class="hover:text-accent transition-colors" data-i18n="nav-experience">Experience</a>
+            </nav>
+
+            <!-- Action Controls (Language Switcher & Theme Toggle & Quick Contact) -->
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <button id="themeToggle" aria-label="Toggle Dark/Light Mode" class="p-2 rounded-lg border border-darkBorder bg-darkCard text-textMain hover:border-accent transition-all flex items-center justify-center">
+                    <i id="themeIcon" class="fa-solid fa-moon text-accent"></i>
+                </button>
+
+                <button id="langToggle" aria-label="Toggle Language" class="px-3.5 py-1.5 rounded-lg border border-darkBorder bg-darkCard text-xs font-semibold text-textMain hover:border-accent transition-all flex items-center gap-1.5">
+                    <i class="fa-solid fa-globe text-accent"></i>
+                    <span id="langLabel">BN / EN</span>
+                </button>
+
+                <a href="#contact" class="hidden sm:inline-flex px-4 py-2 rounded-lg bg-accent text-darkBg font-semibold text-sm hover:bg-accentHover transition-all shadow-md hover:shadow-accent/20">
+                    <span data-i18n="nav-cta">Quick Contact</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="pt-20">
+
+        <!-- 1. Hero Section -->
+        <section class="relative min-h-[90vh] flex items-center justify-center px-4 md:px-12 overflow-hidden bg-neutral-950">
+            
+            <!-- ১. পেছনের মক্কা টাওয়ার/লাইটিং ব্যাকগ্রাউন্ড ব্লার ইফেক্ট -->
+            <div class="absolute inset-0 z-0 opacity-30 pointer-events-none">
+                <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-amber-500/20 via-amber-600/5 to-transparent blur-3xl"></div>
+            </div>
+
+            <canvas id="hero-canvas"></canvas>
+
+            <div class="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full py-16">
+                
+                <!-- ২. বাম পাশের সেকশন (আপনার ওয়েবসাইটের বর্তমান সব লেখা ও বোতাম) -->
+                <div class="lg:col-span-7 space-y-6 text-left">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wide backdrop-blur-md">
+                        <span>✨</span> Welcome to my Portfolio
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                        AI App Developer & <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600" data-i18n="hero-title-accent">
+                            Umrah / Hajj Operations Specialist
+                        </span>
+                    </h1>
+
+                    <p class="max-w-2xl text-neutral-300 text-base md:text-lg leading-relaxed font-normal" data-i18n="hero-desc">
+                        A tech-driven AI App Developer & Travel Operations Specialist blending software development with real-world business execution. Experienced in building modern mobile applications while managing core operations in the Umrah & Travel industry—including passenger data management, Excel financial reporting, and visa documentation.
+                    </p>
+
+                    <!-- বোতামসমূহ (CTA Buttons) -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 font-bold hover:brightness-110 transition-all shadow-lg shadow-amber-500/20 flex items-center gap-2">
+                            <span data-i18n="hero-btn-work">Explore Projects →</span>
+                        </a>
+                        <a href="#contact" class="px-6 py-3.5 rounded-xl bg-neutral-900/90 border border-neutral-700/80 text-white font-semibold hover:bg-neutral-800 transition-all backdrop-blur-md flex items-center gap-2">
+                            <span data-i18n="nav-contact">Contact Me</span>
+                        </a>
+                    </div>
+
+                    <!-- নিচের ব্যাজসমূহ (Competencies Badges) -->
+                    <div class="pt-6 flex flex-wrap gap-3 border-t border-neutral-800/80 text-xs text-neutral-400">
+                        <span class="px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center gap-1.5">
+                            <span class="text-amber-500">&lt;/&gt;</span> Web Development
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center gap-1.5">
+                            <span class="text-amber-500">🕌</span> Umrah Operations
+                        </span>
+                        <span class="px-3 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 flex items-center gap-1.5">
+                            <span class="text-amber-500">⚙️</span> Digital Solutions
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- ৩. ডান পাশের সেকশন (আপনার ছবি + ব্যাকগ্রাউন্ড টাওয়ার অ্যানিমেশন সহ) -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end relative">
+                    <!-- Warm Orange Ambient Glow Behind Portrait -->
+                    <div class="absolute -inset-2 bg-gradient-to-r from-amber-500/30 to-orange-600/30 rounded-[2.5rem] blur-2xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                    <div class="relative w-full max-w-lg aspect-[4/5] rounded-3xl overflow-hidden border border-amber-500/30 shadow-2xl group bg-neutral-900/80 backdrop-blur-sm">
+                        
+                        <!-- আপনার মক্কা টাওয়ার সহ আসল ছবিটি -->
+                        <img src="/siam-hero.jpg" alt="MD Siam - AI App Developer & Umrah Specialist" onerror="this.onerror=null; this.src='https://placehold.co/600x750/151515/FF8A00?text=MD+Siam';" class="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105">
+
+                        <!-- গ্র্যাডিয়েন্ট ওভারলে ও ওয়ার্ম অ্যাম্বিয়েন্ট ব্যাকড্রপ -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent opacity-85"></div>
+                        
+                        <!-- সুক্ষ্ম অরেঞ্জ অ্যাম্বিয়েন্ট গ্লো লাইন -->
+                        <div class="absolute inset-0 border-2 border-amber-500/20 rounded-3xl pointer-events-none group-hover:border-amber-500/50 transition-colors duration-500"></div>
+
+                        <div class="absolute bottom-5 right-5 text-right z-10 flex flex-col items-end gap-1">
+                            <span class="font-serif italic text-lg sm:text-xl text-amber-400 font-bold tracking-wide drop-shadow-md">
+                                Md. Siam
+                            </span>
+                            <span class="text-[10px] sm:text-xs font-sans text-amber-200/90 font-medium px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/30 backdrop-blur-md shadow-sm">
+                                IT Professional & Umrah Operations
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. About Me Section -->
+        <section id="about" class="py-20 border-b border-darkBorder bg-darkBg px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-xs font-bold text-accent uppercase tracking-widest mb-3 text-center" data-i18n="about-section-tag">02. About Me</div>
+
+                <!-- Dark Styled Outer Card Container -->
+                <div class="relative bg-darkCard border border-darkBorder rounded-3xl p-6 sm:p-10 lg:p-12 overflow-hidden shadow-2xl max-w-4xl mx-auto">
+                    <div class="space-y-6 text-center">
+                        <div class="inline-block text-xs font-semibold uppercase tracking-wider text-textMuted border-b border-darkBorder pb-1" data-i18n="about-label">
+                            ABOUT ME
+                        </div>
+
+                        <p class="text-base sm:text-lg text-textMain leading-relaxed font-normal max-w-3xl mx-auto" data-i18n="about-bio-p1">
+                            A tech-driven App Developer & Travel Operations Specialist blending software development with real-world business execution. Experienced in building modern mobile applications while managing core operations in the Umrah & Travel industry—including passenger data management, Excel financial reporting, and visa documentation.
+                        </p>
+
+                        <p class="text-base sm:text-lg text-textMuted leading-relaxed max-w-3xl mx-auto" data-i18n="about-bio-p2">
+                            Dedicated to crafting seamless digital products and optimizing business workflows through code.
+                        </p>
+
+                        <!-- Core Skills Highlights Grid -->
+                        <div class="space-y-4 pt-6 border-t border-darkBorder/60 max-w-2xl mx-auto">
+                            <h4 class="text-xs font-bold text-accent uppercase tracking-wider mb-2">Core Competencies</h4>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+                                <div class="flex items-center gap-2 text-sm text-textMain bg-darkBg/50 p-2.5 rounded-xl border border-darkBorder">
+                                    <i class="fa-solid fa-mobile-screen text-accent text-xs"></i>
+                                    <span>App Dev (Flutter / RN / Android)</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-textMain bg-darkBg/50 p-2.5 rounded-xl border border-darkBorder">
+                                    <i class="fa-solid fa-kaaba text-accent text-xs"></i>
+                                    <span>Hajj & Umrah All Operational Services</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-textMain bg-darkBg/50 p-2.5 rounded-xl border border-darkBorder">
+                                    <i class="fa-solid fa-database text-accent text-xs"></i>
+                                    <span>Data Entry & Database Management</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-textMain bg-darkBg/50 p-2.5 rounded-xl border border-darkBorder">
+                                    <i class="fa-solid fa-file-excel text-accent text-xs"></i>
+                                    <span>Excel (Invoicing & Financial Sheets)</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-textMain bg-darkBg/50 p-2.5 rounded-xl border border-darkBorder">
+                                    <i class="fa-solid fa-passport text-accent text-xs"></i>
+                                    <span>Passport & Image Processing</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-sm text-textMain bg-darkBg/50 p-2.5 rounded-xl border border-darkBorder">
+                                    <i class="fa-solid fa-file-contract text-accent text-xs"></i>
+                                    <span>Visa Documentation Support</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Skills & Technology Grid -->
+        <section id="skills" class="py-20 border-b border-darkBorder bg-darkBg px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-xs font-bold text-accent uppercase tracking-widest mb-2" data-i18n="skills-tag">03. Expertise</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-textMain mb-12" data-i18n="skills-title">Skills & Capabilities</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- AI Tools -->
+                    <div class="bg-darkCard border border-darkBorder rounded-2xl p-6 hover:border-accent/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent text-xl mb-4">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-textMain mb-2">AI Tools</h3>
+                        <ul class="space-y-2 text-sm text-textMuted">
+                            <li>• Antigravity CLI</li>
+                            <li>• Google Gemini</li>
+                            <li>• MCP Protocol</li>
+                        </ul>
+                    </div>
+
+                    <!-- Development -->
+                    <div class="bg-darkCard border border-darkBorder rounded-2xl p-6 hover:border-accent/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent text-xl mb-4">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-textMain mb-2">Development</h3>
+                        <ul class="space-y-2 text-sm text-textMuted">
+                            <li>• Python</li>
+                            <li>• Next.js</li>
+                            <li>• TypeScript</li>
+                            <li>• Tailwind CSS</li>
+                        </ul>
+                    </div>
+
+                    <!-- Platforms -->
+                    <div class="bg-darkCard border border-darkBorder rounded-2xl p-6 hover:border-accent/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent text-xl mb-4">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-textMain mb-2">Platforms</h3>
+                        <ul class="space-y-2 text-sm text-textMuted">
+                            <li>• GitHub</li>
+                            <li>• Vercel</li>
+                            <li>• Render</li>
+                            <li>• Google Cloud</li>
+                        </ul>
+                    </div>
+
+                    <!-- Automation -->
+                    <div class="bg-darkCard border border-darkBorder rounded-2xl p-6 hover:border-accent/50 transition-all">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent text-xl mb-4">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-textMain mb-2">Automation</h3>
+                        <ul class="space-y-2 text-sm text-textMuted">
+                            <li>• Windows Task Scheduler</li>
+                            <li>• PowerShell</li>
+                        </ul>
+                    </div>
+
+                    <!-- Other -->
+                    <div class="bg-darkCard border border-darkBorder rounded-2xl p-6 hover:border-accent/50 transition-all md:col-span-2 lg:col-span-2">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent text-xl mb-4">
+                            <i class="fa-solid fa-layer-group"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-textMain mb-2">Other Services</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm text-textMuted">
+                            <div>• Google Analytics</div>
+                            <div>• Sentry</div>
+                            <div>• Supabase</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Featured Projects -->
+        <section id="projects" class="py-20 border-b border-darkBorder bg-darkBg px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-xs font-bold text-accent uppercase tracking-widest mb-2" data-i18n="projects-tag">04. Portfolio</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-textMain mb-12" data-i18n="projects-title">Featured Projects</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project 1: Iron & Habit Fitness App -->
+                    <div class="bg-darkCard border border-darkBorder rounded-2xl overflow-hidden group hover:border-accent/50 transition-all">
+                        <div class="h-56 bg-stone-900 relative overflow-hidden flex items-center justify-center">
+                            <div class="text-accent text-5xl opacity-40 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-dumbbell"></i>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-textMain mb-2">Iron & Habit Fitness App</h3>
+                            <p class="text-sm text-textMuted mb-4">Next.js fitness tracker with workout, nutrition, BMI tracking, AI assistant.</p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2.5 py-1 rounded bg-darkBg border border-darkBorder text-xs text-accent">Next.js</span>
+                                <span class="px-2.5 py-1 rounded bg-darkBg border border-darkBorder text-xs text-accent">TypeScript</span>
+                                <span class="px-2.5 py-1 rounded bg-darkBg border border-darkBorder text-xs text-accent">Tailwind CSS</span>
+                                <span class="px-2.5 py-1 rounded bg-darkBg border border-darkBorder text-xs text-accent">AI Assistant</span>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <a href="https://ironandhabit.vercel.app" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-accent text-darkBg text-xs font-bold hover:bg-accentHover transition-colors flex items-center gap-2">
+                                    <span>Live Demo</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Career Experience Timeline -->
+        <section id="experience" class="py-20 border-b border-darkBorder bg-darkBg px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-xs font-bold text-accent uppercase tracking-widest mb-2" data-i18n="exp-tag">05. Career</div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-textMain mb-12" data-i18n="exp-title">Experience Timeline</h2>
+
+                <div class="relative border-l-2 border-darkBorder ml-4 sm:ml-8 space-y-12">
+                    <!-- Current Role -->
+                    <div class="relative pl-6 sm:pl-10">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent border-4 border-darkBg"></div>
+                        <div class="bg-darkCard border border-darkBorder rounded-2xl p-6 shadow-lg">
+                            <span class="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold mb-3">Present • Saudi Arabia</span>
+                            <h3 class="text-xl font-bold text-textMain" data-i18n="exp-role-1">AI App Developer & Umrah / Hajj Operations Specialist</h3>
+                            <p class="text-sm font-medium text-accent mb-4" data-i18n="exp-company-1">Umrah & Hajj Travel Operations</p>
+                            <ul class="space-y-2 text-sm text-textMuted">
+                                <li data-i18n="exp-d1">• Managing passenger data management pipelines, passport image processing, and database workflows.</li>
+                                <li data-i18n="exp-d2">• Generating Excel invoicing, financial reporting sheets, and Umrah/Hajj transport and hotel vouchers.</li>
+                                <li data-i18n="exp-d3">• Providing comprehensive visa documentation support and operational verification.</li>
+                                <li data-i18n="exp-d4">• Building custom app solutions and automated digital workflows to optimize business processes.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 4+ Years Experience Role -->
+                    <div class="relative pl-6 sm:pl-10">
+                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-accent/60 border-4 border-darkBg"></div>
+                        <div class="bg-darkCard border border-darkBorder rounded-2xl p-6 shadow-lg">
+                            <span class="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold mb-3">4+ Years Total Experience</span>
+                            <h3 class="text-xl font-bold text-textMain" data-i18n="exp-role-2">IT Professional & Technical Operations Specialist</h3>
+                            <p class="text-sm font-medium text-accent mb-4" data-i18n="exp-company-2">Computer Systems & Technical Operations</p>
+                            <ul class="space-y-2 text-sm text-textMuted">
+                                <li data-i18n="exp-d2-1">• Over 4 years of hands-on expertise in computer systems management, hardware/software troubleshooting, and data administration.</li>
+                                <li data-i18n="exp-d2-2">• Streamlining administrative data workflows, corporate reporting, and tracking using advanced Microsoft Excel and automated scripts.</li>
+                                <li data-i18n="exp-d2-3">• Executing reliable system maintenance, Windows task scheduling, and secure digital documentation practices.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contact Section -->
+        <section id="contact" class="py-20 bg-darkBg px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="text-xs font-bold text-accent uppercase tracking-widest mb-2" data-i18n="contact-tag">06. Get In Touch</div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-textMain mb-6" data-i18n="contact-title">Let's Connect</h2>
+                <p class="text-textMuted max-w-lg mx-auto mb-10" data-i18n="contact-desc">
+                    Feel free to reach out for IT consultation, Umrah operational software insights, or developer collaboration.
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto mb-10">
+                    <a href="mailto:013siam11932412@gmail.com" class="p-4 bg-darkCard border border-darkBorder rounded-2xl flex items-center justify-center gap-3 hover:border-accent transition-all">
+                        <i class="fa-solid fa-envelope text-accent text-lg"></i>
+                        <span class="text-sm font-medium text-textMain">Email Me</span>
+                    </a>
+                    <a href="https://wa.me/966000000000" target="_blank" class="p-4 bg-darkCard border border-darkBorder rounded-2xl flex items-center justify-center gap-3 hover:border-accent transition-all">
+                        <i class="fa-brands fa-whatsapp text-accent text-lg"></i>
+                        <span class="text-sm font-medium text-textMain">WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Social Links Grid -->
+                <div class="flex flex-wrap items-center justify-center gap-3 max-w-2xl mx-auto mb-6">
+                    <a href="https://www.linkedin.com/in/md-siam-7b7964314" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-darkCard border border-darkBorder rounded-xl text-textMuted hover:text-accent hover:border-accent transition-all flex items-center gap-2 text-xs font-semibold">
+                        <i class="fa-brands fa-linkedin text-sm text-accent"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://t.me/+8801311932412" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-darkCard border border-darkBorder rounded-xl text-textMuted hover:text-accent hover:border-accent transition-all flex items-center gap-2 text-xs font-semibold">
+                        <i class="fa-brands fa-telegram text-sm text-accent"></i>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://www.threads.net/@muhammadullah_siam" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-darkCard border border-darkBorder rounded-xl text-textMuted hover:text-accent hover:border-accent transition-all flex items-center gap-2 text-xs font-semibold">
+                        <i class="fa-solid fa-at text-sm text-accent"></i>
+                        <span>Threads</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/1EHVCXGyxW/" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-darkCard border border-darkBorder rounded-xl text-textMuted hover:text-accent hover:border-accent transition-all flex items-center gap-2 text-xs font-semibold">
+                        <i class="fa-brands fa-facebook text-sm text-accent"></i>
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://www.instagram.com/muhammadullah_siam?cplk=Z25oenplNjc0Y3c1" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 bg-darkCard border border-darkBorder rounded-xl text-textMuted hover:text-accent hover:border-accent transition-all flex items-center gap-2 text-xs font-semibold">
+                        <i class="fa-brands fa-instagram text-sm text-accent"></i>
+                        <span>Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-darkBorder bg-darkBg py-8 px-4 text-center text-xs text-textMuted">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>© 2026 MD Siam. All rights reserved.</p>
+            <div class="flex items-center space-x-5">
+                <a href="https://github.com/013siam11932412-dev" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors" aria-label="GitHub"><i class="fa-brands fa-github text-base"></i></a>
+                <a href="https://www.linkedin.com/in/md-siam-7b7964314" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin text-base"></i></a>
+                <a href="https://t.me/+8801311932412" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors" aria-label="Telegram"><i class="fa-brands fa-telegram text-base"></i></a>
+                <a href="https://www.threads.net/@muhammadullah_siam" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors" aria-label="Threads"><i class="fa-solid fa-at text-base"></i></a>
+                <a href="https://www.facebook.com/share/1EHVCXGyxW/" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook text-base"></i></a>
+                <a href="https://www.instagram.com/muhammadullah_siam?cplk=Z25oenplNjc0Y3c1" target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram text-base"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts & Dictionary Logic -->
+    <script>
+        // Dynamic Dark / Light Theme Toggle Setup
+        const themeBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const htmlEl = document.documentElement;
+
+        themeBtn.addEventListener('click', () => {
+            if (htmlEl.classList.contains('dark')) {
+                htmlEl.classList.remove('dark');
+                htmlEl.classList.add('light');
+                themeIcon.className = 'fa-solid fa-sun text-accent';
+            } else {
+                htmlEl.classList.remove('light');
+                htmlEl.classList.add('dark');
+                themeIcon.className = 'fa-solid fa-moon text-accent';
+            }
+        });
+
+        // Language Translation Dictionary
+        const translations = {
+            bn: {
+                "nav-about": "আমার সম্পর্কে",
+                "nav-skills": "দক্ষতা",
+                "nav-projects": "প্রজেক্ট",
+                "nav-experience": "অভিজ্ঞতা",
+                "nav-contact": "যোগাযোগ",
+                "nav-cta": "দ্রুত যোগাযোগ",
+                "hero-desc": "সফটওয়্যার ডেভেলপমেন্টের সাথে বাস্তব ব্যবসায়িক কার্যক্রমের সমন্বয়কারী একজন প্রযুক্তি-প্রেমী AI অ্যাপ ডেভেলপার এবং ট্রাভেল অপারেশনস স্পেশালিস্ট। ওমরাহ ও ট্রাভেল ইন্ডাস্ট্রিতে যাত্রী ডেটা ম্যানেজমেন্ট, এক্সেল ফাইন্যান্সিয়াল রিপোর্টিং এবং ভিসা ডকুমেন্টেশনসহ মূল ক্রিয়াকলাপ পরিচালনার পাশাপাশি আধুনিক মোবাইল অ্যাপ্লিকেশন তৈরিতে অভিজ্ঞ। কোড ব্যবহারের মাধ্যমে নিরবচ্ছিন্ন ডিজিটাল প্রোডাক্ট তৈরি এবং ব্যবসায়িক প্রক্রিয়া অপ্টিমাইজ করতে প্রতিশ্রুতিবদ্ধ।",
+                "hero-btn-work": "প্রজেক্ট দেখুন",
+                "hero-btn-contact": "যোগাযোগ করুন",
+                "about-section-tag": "০২. আমার সম্পর্কে",
+                "about-label": "ABOUT ME",
+                "about-bio-p1": "আমি সফটওয়্যার ডেভেলপমেন্টের সাথে বাস্তব ব্যবসায়িক কার্যক্রমের সমন্বয়কারী একজন প্রযুক্তি-প্রেমী AI অ্যাপ ডেভেলপার এবং ট্রাভেল অপারেশনস স্পেশালিস্ট। ওমরাহ ও ট্রাভেল ইন্ডাস্ট্রিতে যাত্রী ডেটা ম্যানেজমেন্ট, এক্সেল ফাইন্যান্সিয়াল রিপোর্টিং এবং ভিসা ডকুমেন্টেশনসহ মূল ক্রিয়াকলাপ পরিচালনার পাশাপাশি আধুনিক মোবাইল অ্যাপ্লিকেশন তৈরিতে অভিজ্ঞ।",
+                "about-bio-p2": "কোডের সাহায্যে নিরবচ্ছিন্ন ডিজিটাল প্রোডাক্ট তৈরি এবং ব্যবসায়িক প্রসেস অপ্টিমাইজ করতে আমি প্রতিশ্রুতিবদ্ধ।",
+                "about-h1-title": "AI অ্যাপ ডেভেলপমেন্ট",
+                "about-h1-desc": "Next.js, Python ও TypeScript দিয়ে মানসম্মত সফটওয়্যার তৈরি।",
+                "about-h2-title": "ওমরাহ ও হজ অপারেশনস",
+                "about-h2-desc": "ডেটা এন্ট্রি, অটোমেশন, এক্সেল ফাইন্যান্সিয়াল শিট ও ভিসা সাপোর্ট।",
+                "skills-tag": "০৩. প্রযুক্তি ও দক্ষতা",
+                "skills-title": "দক্ষতা ও টেকনোলজি",
+                "projects-tag": "০৪. পোর্টফোলিও",
+                "projects-title": "বিশেষ প্রজেক্টসমূহ",
+                "exp-tag": "০৫. ক্যারিয়ার",
+                "exp-title": "অভিজ্ঞতার সময়রেখা",
+                "exp-role-1": "AI অ্যাপ ডেভেলপার ও ওমরাহ/হজ অপারেশনস স্পেশালিস্ট",
+                "exp-company-1": "ওমরাহ ও হজ ট্রাভেল অপারেশনস • সৌদি আরব",
+                "exp-d1": "• যাত্রী ডেটা ম্যানেজমেন্ট, পাসপোর্ট ইমেজ প্রসেসিং এবং ডেটাবেস ওয়ার্কফ্লো পরিচালনা।",
+                "exp-d2": "• এক্সেল ইনভয়েসিং, ফাইন্যান্সিয়াল রিপোর্টিং শিট এবং পরিবহন ও হোটেল ভাউচার তৈরি।",
+                "exp-d3": "• সম্পূর্ণ ভিসা ডকুমেন্টেশন সাপোর্ট এবং অপারেশনাল ভেরিফিকেশন প্রদান।",
+                "exp-d4": "• ব্যবসায়িক প্রক্রিয়া অপ্টিমাইজ করতে কাস্টম অ্যাপ সলিউশন এবং অটোমেটেড ওয়ার্কফ্লো তৈরি।",
+                "exp-role-2": "IT প্রফেশনাল এবং টেকনিক্যাল অপারেশনস স্পেশালিস্ট",
+                "exp-company-2": "কম্পিউটার সিস্টেমস এবং টেকনিক্যাল অপারেশনস (মোট ৪+ বছরের অভিজ্ঞতা)",
+                "exp-d2-1": "• কম্পিউটার সিস্টেম ম্যানেজমেন্ট, হার্ডওয়্যার/সফটওয়্যার ট্রাবলশুটিং এবং ডেটা অ্যাডমিনিস্ট্রেশনে ৪ বছরেরও বেশি সময়ের ব্যবহারিক অভিজ্ঞতা।",
+                "exp-d2-2": "• অ্যাডভান্সড মাইক্রোসফট এক্সেল এবং অটোমেটেড স্ক্রিপ্ট ব্যবহারের মাধ্যমে অ্যাডমিনিস্ট্রেটিভ ডেটা ওয়ার্কফ্লো, করপোরেট রিপোর্টিং ও ট্র্যাকিং সহজীকরণ।",
+                "exp-d2-3": "• নির্ভরযোগ্য সিস্টেম মেইনটেন্যান্স, উইন্ডোজ টাস্ক শিডিউলিং এবং নিরাপদ ডিজিটাল ডকুমেন্টেশন পরিচালনা।",
+                "contact-tag": "০৬. যোগাযোগ",
+                "contact-title": "কথা বলুন",
+                "contact-desc": "আইটি কনসালটেশন, AI অ্যাপ ডেভেলপমেন্ট বা ওমরাহ/হজ অপারেশনাল সফটওয়্যার বিষয়ে কথা বলতে যোগাযোগ করুন।"
+            },
+            en: {
+                "nav-about": "About Me",
+                "nav-skills": "Skills",
+                "nav-projects": "Projects",
+                "nav-experience": "Experience",
+                "nav-contact": "Contact",
+                "nav-cta": "Quick Contact",
+                "hero-desc": "A tech-driven AI App Developer & Travel Operations Specialist blending software development with real-world business execution. Experienced in building modern mobile applications while managing core operations in the Umrah & Travel industry—including passenger data management, Excel financial reporting, and visa documentation. Dedicated to crafting seamless digital products and optimizing business workflows through code.",
+                "hero-btn-work": "View Projects",
+                "hero-btn-contact": "Get In Touch",
+                "about-section-tag": "02. About Me",
+                "about-label": "ABOUT ME",
+                "about-bio-p1": "A tech-driven AI App Developer & Travel Operations Specialist blending software development with real-world business execution. Experienced in building modern mobile applications while managing core operations in the Umrah & Travel industry—including passenger data management, Excel financial reporting, and visa documentation.",
+                "about-bio-p2": "Dedicated to crafting seamless digital products and optimizing business workflows through code.",
+                "about-h1-title": "AI App Development",
+                "about-h1-desc": "Next.js, Python, TypeScript & modern tech stack solutions.",
+                "about-h2-title": "Umrah & Hajj Operations",
+                "about-h2-desc": "Data entry, automation, Excel invoicing & visa support.",
+                "skills-tag": "03. Expertise",
+                "skills-title": "Skills & Capabilities",
+                "projects-tag": "04. Portfolio",
+                "projects-title": "Featured Projects",
+                "exp-tag": "05. Career",
+                "exp-title": "Experience Timeline",
+                "exp-role-1": "AI App Developer & Umrah / Hajj Operations Specialist",
+                "exp-company-1": "Umrah & Hajj Travel Operations • Saudi Arabia",
+                "exp-d1": "• Managing passenger data management pipelines, passport image processing, and database workflows.",
+                "exp-d2": "• Generating Excel invoicing, financial reporting sheets, and Umrah/Hajj transport and hotel vouchers.",
+                "exp-d3": "• Providing comprehensive visa documentation support and operational verification.",
+                "exp-d4": "• Building custom app solutions and automated digital workflows to optimize business processes.",
+                "exp-role-2": "IT Professional & Technical Operations Specialist",
+                "exp-company-2": "Computer Systems & Technical Operations (4+ Years Total Experience)",
+                "exp-d2-1": "• Over 4 years of hands-on expertise in computer systems management, hardware/software troubleshooting, and data administration.",
+                "exp-d2-2": "• Streamlining administrative data workflows, corporate reporting, and tracking using advanced Microsoft Excel and automated scripts.",
+                "exp-d2-3": "• Executing reliable system maintenance, Windows task scheduling, and secure digital documentation practices.",
+                "contact-tag": "06. Get In Touch",
+                "contact-title": "Let's Connect",
+                "contact-desc": "Feel free to reach out for IT consultation, AI App Development, or Umrah & Hajj operational software insights."
+            }
+        };
+
+        let currentLang = 'bn';
+        const langBtn = document.getElementById('langToggle');
+
+        langBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'bn' ? 'en' : 'bn';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+        });
+
+        // Background 3D Particles Animation using Three.js
+        window.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('hero-canvas');
+            if (!canvas) return;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            const geometry = new THREE.BufferGeometry();
+            const count = 300;
+            const positions = new Float32Array(count * 3);
+
+            for (let i = 0; i < count * 3; i++) {
+                positions[i] = (Math.random() - 0.5) * 15;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+            const material = new THREE.PointsMaterial({
+                color: 0xFF7838,
+                size: 0.05,
+                transparent: true,
+                opacity: 0.4
+            });
+
+            const points = new THREE.Points(geometry, material);
+            scene.add(points);
+
+            camera.position.z = 5;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                points.rotation.y += 0.001;
+                points.rotation.x += 0.0005;
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                if (!canvas) return;
+                camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            });
+        });
+    </script>
+</body>
+</html>
