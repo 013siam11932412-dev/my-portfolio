@@ -193,12 +193,25 @@
     <!-- Main Container Card (Hero Section) -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 min-h-screen flex flex-col justify-center">
 
-        <!-- Hero Section Grid with Removed Outer Background/Blur & Preserved Data -->
+        <!-- Hero Section Grid with Single Clean Frame & Preserved Data -->
         <section id="hero-section"
-            class="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16 px-4 sm:px-6 overflow-hidden">
+            class="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16 p-6 sm:p-12 rounded-3xl bg-zinc-900/50 backdrop-blur-xl border border-yellow-500/20 shadow-2xl overflow-hidden group">
 
             <!-- Dynamic Vanilla JS Mouse-Tracking Golden Spotlight Glow Style & Animations -->
             <style>
+                #hero-section::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(234, 179, 8, 0.08), transparent 40%);
+                    pointer-events: none;
+                    z-index: 1;
+                    transition: opacity 0.3s ease;
+                }
+
                 @keyframes staggerFadeUp {
                     0% {
                         opacity: 0;
@@ -409,6 +422,20 @@
             </div>
 
         </section>
+
+        <!-- Mouse Tracking Spotlight JavaScript Script -->
+        <script>
+            const heroSection = document.getElementById('hero-section');
+            if (heroSection) {
+                heroSection.addEventListener('mousemove', (e) => {
+                    const rect = heroSection.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    heroSection.style.setProperty('--mouse-x', `${x}px`);
+                    heroSection.style.setProperty('--mouse-y', `${y}px`);
+                });
+            }
+        </script>
         </div>
         </div>
         </div>
@@ -958,6 +985,14 @@
 
         const statsSection = document.getElementById('stats-section');
         if (statsSection) statsObserver.observe(statsSection);
+    </script>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            document.body.style.setProperty('--mouse-x', `${x}px`);
+            document.body.style.setProperty('--mouse-y', `${y}px`);
+        });
     </script>
 </body>
 
