@@ -244,7 +244,7 @@
                 <!-- Right Column: Personal Photo with Gold Glow Background & Advanced Animations -->
                 <div class="lg:col-span-5 flex justify-center relative py-10">
 
-                    <!-- Floating Animation & Golden Particle Dots Style (Inline CSS for smooth effect) -->
+                    <!-- Floating Animation & Golden Particle Dots Style -->
                     <style>
                         @keyframes slowFloat {
 
@@ -254,7 +254,7 @@
                             }
 
                             50% {
-                                transform: translateY(-12px);
+                                transform: translateY(-10px);
                             }
                         }
 
@@ -275,11 +275,11 @@
                             0%,
                             100% {
                                 transform: translateY(0px) translateX(0px);
-                                opacity: 0.3;
+                                opacity: 0.4;
                             }
 
                             50% {
-                                transform: translateY(-20px) translateX(10px);
+                                transform: translateY(-15px) translateX(8px);
                                 opacity: 0.9;
                             }
                         }
@@ -289,11 +289,11 @@
                             0%,
                             100% {
                                 transform: translateY(0px) translateX(0px);
-                                opacity: 0.4;
+                                opacity: 0.5;
                             }
 
                             50% {
-                                transform: translateY(15px) translateX(-15px);
+                                transform: translateY(12px) translateX(-10px);
                                 opacity: 1;
                             }
                         }
@@ -323,31 +323,36 @@
                         class="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full bg-yellow-300 top-1/3 left-1/2 -translate-x-1/2 -z-0 opacity-30">
                     </div>
 
-                    <!-- Floating Golden Particle Dots around the image -->
-                    <div
-                        class="absolute -top-4 -left-4 w-3 h-3 rounded-full bg-yellow-400 blur-[0.5px] floating-particle-1 z-20">
-                    </div>
-                    <div
-                        class="absolute top-1/4 -right-6 w-4 h-4 rounded-full bg-amber-300 blur-[1px] floating-particle-2 z-20">
-                    </div>
-                    <div
-                        class="absolute -bottom-6 left-1/3 w-3.5 h-3.5 rounded-full bg-yellow-500 blur-[0.5px] floating-particle-2 z-20">
-                    </div>
-                    <div
-                        class="absolute bottom-10 -right-4 w-2.5 h-2.5 rounded-full bg-amber-400 floating-particle-1 z-20">
-                    </div>
+                    <!-- Container with relative positioning to keep particles strictly around the photo frame -->
+                    <div class="relative w-full max-w-xs sm:max-w-sm aspect-[4/5]">
 
-                    <!-- Portrait Photo Frame with Slow Float & Golden Glow Border Animation -->
-                    <div
-                        class="relative z-10 w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-2 border-yellow-500/60 animate-slow-float animate-gold-glow">
-                        <img src="/siam-hero.jpg" alt="MD SIAM - Personal Portrait"
-                            onerror="this.onerror=null; this.src='https://placeholder.co/600x750/18181b/eab308?text=MD+SIAM';"
-                            class="w-full h-full object-cover object-top">
-
-                        <!-- Gradient Overlay from Dark to Transparent at the bottom -->
+                        <!-- Floating Golden Particle Dots (Contained inside wrapper) -->
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 via-transparent to-transparent pointer-events-none">
+                            class="absolute top-4 left-4 w-3 h-3 rounded-full bg-yellow-400 blur-[0.5px] floating-particle-1 z-20">
                         </div>
+                        <div
+                            class="absolute top-1/4 right-4 w-4 h-4 rounded-full bg-amber-300 blur-[1px] floating-particle-2 z-20">
+                        </div>
+                        <div
+                            class="absolute bottom-10 left-1/4 w-3.5 h-3.5 rounded-full bg-yellow-500 blur-[0.5px] floating-particle-2 z-20">
+                        </div>
+                        <div
+                            class="absolute bottom-6 right-6 w-2.5 h-2.5 rounded-full bg-amber-400 floating-particle-1 z-20">
+                        </div>
+
+                        <!-- Portrait Photo Frame with Slow Float & Golden Glow Border Animation -->
+                        <div
+                            class="relative z-10 w-full h-full rounded-2xl overflow-hidden shadow-2xl border-2 border-yellow-500/60 animate-slow-float animate-gold-glow">
+                            <img src="/siam-hero.jpg" alt="MD SIAM - Personal Portrait"
+                                onerror="this.onerror=null; this.src='https://placeholder.co/600x750/18181b/eab308?text=MD+SIAM';"
+                                class="w-full h-full object-cover object-top">
+
+                            <!-- Gradient Overlay from Dark to Transparent at the bottom -->
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 via-transparent to-transparent pointer-events-none">
+                            </div>
+                        </div>
+
                     </div>
                 </div>
         </div>
