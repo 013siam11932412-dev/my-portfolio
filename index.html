@@ -180,259 +180,222 @@
     <!-- Main Container Card (Hero Section) -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 min-h-screen flex flex-col justify-center">
 
-        <div
-            class="bg-[#111115]/90 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-yellow-500/20 p-6 sm:p-10 lg:p-14 relative">
-            <!-- Hero Section Grid with Advanced Senior Developer Polish & Preserved Data -->
-            <section id="hero-section"
-                class="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16 p-6 sm:p-12 rounded-3xl bg-zinc-900/50 backdrop-blur-xl border border-yellow-500/20 shadow-2xl overflow-hidden group">
+        <!-- Hero Section Grid with Removed Outer Background/Blur & Preserved Data -->
+        <section id="hero-section"
+            class="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16 px-4 sm:px-6 overflow-hidden">
 
-                <!-- Dynamic Vanilla JS Mouse-Tracking Golden Spotlight Glow Style & Animations -->
-                <style>
-                    #hero-section::before {
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(234, 179, 8, 0.08), transparent 40%);
-                        pointer-events: none;
-                        z-index: 1;
-                        transition: opacity 0.3s ease;
-                    }
-
-                    @keyframes staggerFadeUp {
-                        0% {
-                            opacity: 0;
-                            transform: translateY(20px);
-                        }
-
-                        100% {
-                            opacity: 1;
-                            transform: translateY(0);
-                        }
-                    }
-
-                    @keyframes cursorPulse {
-
-                        0%,
-                        100% {
-                            opacity: 1;
-                            transform: scaleY(1);
-                        }
-
-                        50% {
-                            opacity: 0.3;
-                            transform: scaleY(0.85);
-                        }
-                    }
-
-                    @keyframes shimmer {
-                        0% {
-                            transform: translateX(-100%);
-                        }
-
-                        100% {
-                            transform: translateX(100%);
-                        }
-                    }
-
-                    @keyframes slowFloat {
-
-                        0%,
-                        100% {
-                            transform: translateY(0px);
-                        }
-
-                        50% {
-                            transform: translateY(-8px);
-                        }
-                    }
-
-                    @keyframes borderGlowPulse {
-
-                        0%,
-                        100% {
-                            box-shadow: 0 0 15px rgba(234, 179, 8, 0.3);
-                            border-color: rgba(234, 179, 8, 0.4);
-                        }
-
-                        50% {
-                            box-shadow: 0 0 25px rgba(234, 179, 8, 0.7);
-                            border-color: rgba(234, 179, 8, 0.9);
-                        }
-                    }
-
-                    .animate-fade-up-1 {
-                        animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+            <!-- Dynamic Vanilla JS Mouse-Tracking Golden Spotlight Glow Style & Animations -->
+            <style>
+                @keyframes staggerFadeUp {
+                    0% {
                         opacity: 0;
+                        transform: translateY(20px);
                     }
 
-                    .animate-fade-up-2 {
-                        animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
-                        opacity: 0;
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
                     }
-
-                    .animate-fade-up-3 {
-                        animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-                        opacity: 0;
-                    }
-
-                    .animate-fade-up-4 {
-                        animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
-                        opacity: 0;
-                    }
-
-                    .animate-fade-up-5 {
-                        animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
-                        opacity: 0;
-                    }
-
-                    .typing-cursor-pulsing {
-                        display: inline-block;
-                        width: 3px;
-                        height: 1em;
-                        background-color: #eab308;
-                        margin-left: 4px;
-                        vertical-align: middle;
-                        animation: cursorPulse 1.2s infinite ease-in-out;
-                    }
-
-                    .shimmer-btn {
-                        position: relative;
-                        overflow: hidden;
-                    }
-
-                    .shimmer-btn::after {
-                        content: '';
-                        position: absolute;
-                        top: 0;
-                        left: -100%;
-                        width: 100%;
-                        height: 100%;
-                        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-                        animation: shimmer 3s infinite;
-                    }
-
-                    .hover-border-glow:hover {
-                        animation: borderGlowPulse 2s infinite ease-in-out;
-                    }
-
-                    .animate-slow-float {
-                        animation: slowFloat 5s ease-in-out infinite;
-                    }
-                </style>
-
-                <!-- Left Column: Content & Bio (Preserved 100% exact text) -->
-                <div class="lg:col-span-7 space-y-6 relative z-10">
-                    <p class="text-lg font-semibold text-yellow-400 tracking-wide animate-fade-up-1">
-                        <span class="lang-en">Hi, I'm MD SIAM</span><span class="lang-bn">হাই, আমি এমডি সিয়াম</span>
-                    </p>
-
-                    <!-- Animated Typing Effect with Pulsing Cursor -->
-                    <div class="min-h-[48px] sm:min-h-[60px] flex items-center animate-fade-up-2">
-                        <h1 style="font-family: 'Poppins', 'Hind Siliguri', sans-serif;"
-                            class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white flex items-center">
-                            <span id="typed-text" class="text-gold-gradient"></span><span
-                                class="typing-cursor-pulsing"></span>
-                        </h1>
-                    </div>
-
-                    <!-- Primary Role Subtitle -->
-                    <p style="font-family: 'Poppins', 'Hind Siliguri', sans-serif;"
-                        class="text-lg sm:text-xl font-bold tracking-wide text-amber-400/90 animate-fade-up-3">
-                        <span class="lang-en">App Developer & Umrah Operations Specialist</span>
-                        <span class="lang-bn">অ্যাপ ডেভেলপার ও উমরাহ অপারেশনস স্পেশালিস্ট</span>
-                    </p>
-
-                    <!-- Preserved Exact Bio Paragraph -->
-                    <p
-                        class="text-zinc-300 text-base sm:text-lg max-w-xl leading-relaxed font-normal animate-fade-up-4">
-                        <span class="lang-en">A tech-driven App Developer & Umrah Operations Specialist blending
-                            software development with real-world business execution. Experienced in building modern
-                            mobile applications while managing core operations in the Umrah & Travel industry—including
-                            passenger data management, Excel financial reporting, and visa documentation. Dedicated to
-                            crafting seamless digital products and optimizing business workflows through code.</span>
-                        <span class="lang-bn">একজন টেক-ড্রাইভেন অ্যাপ ডেভেলপার এবং ট্রাভেল অপারেশনস স্পেশালিস্ট,
-                            যিনি সফটওয়্যার ডেভেলপমেন্ট ও বাস্তব ব্যবসায়িক কার্যক্রমের সুন্দর সমন্বয় ঘটিয়ে চলেছেন।
-                            উমরাহ
-                            ও ট্রাভেল ইন্ডাস্ট্রির মূল অপারেশনস—যেমন প্যাসেঞ্জার ডেটা ম্যানেজমেন্ট, এক্সেল
-                            ফাইন্যান্সিয়াল রিপোর্টিং এবং ভিসা ডকুমেন্টেশন পরিচালনার পাশাপাশি আধুনিক মোবাইল অ্যাপ্লিকেশন
-                            তৈরিতে অভিজ্ঞ। কোডিংয়ের মাধ্যমে নিখুঁত ডিজিটাল পণ্য তৈরি এবং ব্যবসায়িক ওয়ার্কফ্লো
-                            অপ্টিমাইজ
-                            করতেই আমি প্রতিশ্রুতিবদ্ধ।</span>
-                    </p>
-
-                    <!-- Action Buttons with Shimmer & Glow Hover Effects -->
-                    <div class="flex flex-wrap items-center gap-4 pt-4 animate-fade-up-5">
-                        <a href="#projects"
-                            class="tilt-card shimmer-btn px-8 py-4 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-bold text-sm hover:from-yellow-400 hover:to-amber-500 shadow-lg shadow-yellow-500/25 inline-block transition-transform duration-300 hover:scale-105">
-                            <span class="tilt-inner inline-block">
-                                <span class="lang-en">Explore Projects</span><span class="lang-bn">প্রজেক্ট দেখুন</span>
-                            </span>
-                        </a>
-                        <a href="#contact"
-                            class="tilt-card hover-border-glow px-8 py-4 rounded-xl border border-yellow-500/40 text-yellow-400 font-bold text-sm hover:bg-yellow-500/10 inline-block transition-all duration-300 hover:scale-105">
-                            <span class="tilt-inner inline-block">
-                                <span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span>
-                            </span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right Column: Personal Photo with Floating Effect, Hover Border Glow & Clean Bottom-Right Badge -->
-                <div class="lg:col-span-5 flex justify-center relative py-10 z-10">
-
-                    <!-- Background Gold Circles -->
-                    <div
-                        class="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-amber-600 to-yellow-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-0 opacity-80 blur-[1px]">
-                    </div>
-                    <div
-                        class="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full bg-yellow-300 top-1/3 left-1/2 -translate-x-1/2 -z-0 opacity-30">
-                    </div>
-
-                    <!-- Glassmorphic Container Wrapper -->
-                    <div
-                        class="relative w-full max-w-xs sm:max-w-sm aspect-[4/5] p-3 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-yellow-500/30 shadow-2xl">
-
-                        <!-- Portrait Photo Frame with Slow Float & Hover Golden Glow Border -->
-                        <div
-                            class="relative z-20 w-full h-full rounded-2xl overflow-hidden shadow-2xl border-2 border-yellow-500/60 animate-slow-float transition-all duration-500 hover:shadow-[0_0_30px_rgba(234,179,8,0.6)] hover:border-yellow-400">
-                            <img src="/siam-hero.jpg" alt="MD SIAM - Personal Portrait"
-                                onerror="this.onerror=null; this.src='https://placeholder.co/600x750/18181b/eab308?text=MD+SIAM';"
-                                class="w-full h-full object-cover object-top">
-
-                            <!-- Gradient Overlay from Dark to Transparent at the bottom -->
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-[#09090b]/90 via-[#09090b]/30 to-transparent pointer-events-none">
-                            </div>
-
-                            <!-- Clean Bottom-Right Name & Title Badge -->
-                            <div
-                                class="absolute bottom-4 right-4 z-30 text-right bg-zinc-950/70 backdrop-blur-md px-3 py-2 rounded-xl border border-yellow-500/30 shadow-lg pointer-events-none">
-                                <p class="text-xs font-bold text-yellow-400 tracking-wide">Md. Siam</p>
-                                <p class="text-[10px] font-medium text-zinc-300">IT Specialist & Omrah Operations</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-            </section>
-
-            <!-- Mouse Tracking Spotlight JavaScript Script -->
-            <script>
-                const heroSection = document.getElementById('hero-section');
-                if (heroSection) {
-                    heroSection.addEventListener('mousemove', (e) => {
-                        const rect = heroSection.getBoundingClientRect();
-                        const x = e.clientX - rect.left;
-                        const y = e.clientY - rect.top;
-                        heroSection.style.setProperty('--mouse-x', `${x}px`);
-                        heroSection.style.setProperty('--mouse-y', `${y}px`);
-                    });
                 }
-            </script>
+
+                @keyframes cursorPulse {
+
+                    0%,
+                    100% {
+                        opacity: 1;
+                        transform: scaleY(1);
+                    }
+
+                    50% {
+                        opacity: 0.3;
+                        transform: scaleY(0.85);
+                    }
+                }
+
+                @keyframes shimmer {
+                    0% {
+                        transform: translateX(-100%);
+                    }
+
+                    100% {
+                        transform: translateX(100%);
+                    }
+                }
+
+                @keyframes slowFloat {
+
+                    0%,
+                    100% {
+                        transform: translateY(0px);
+                    }
+
+                    50% {
+                        transform: translateY(-8px);
+                    }
+                }
+
+                @keyframes borderGlowPulse {
+
+                    0%,
+                    100% {
+                        box-shadow: 0 0 15px rgba(234, 179, 8, 0.3);
+                        border-color: rgba(234, 179, 8, 0.4);
+                    }
+
+                    50% {
+                        box-shadow: 0 0 25px rgba(234, 179, 8, 0.7);
+                        border-color: rgba(234, 179, 8, 0.9);
+                    }
+                }
+
+                .animate-fade-up-1 {
+                    animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+                    opacity: 0;
+                }
+
+                .animate-fade-up-2 {
+                    animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+                    opacity: 0;
+                }
+
+                .animate-fade-up-3 {
+                    animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+                    opacity: 0;
+                }
+
+                .animate-fade-up-4 {
+                    animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+                    opacity: 0;
+                }
+
+                .animate-fade-up-5 {
+                    animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+                    opacity: 0;
+                }
+
+                .typing-cursor-pulsing {
+                    display: inline-block;
+                    width: 3px;
+                    height: 1em;
+                    background-color: #eab308;
+                    margin-left: 4px;
+                    vertical-align: middle;
+                    animation: cursorPulse 1.2s infinite ease-in-out;
+                }
+
+                .shimmer-btn {
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .shimmer-btn::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+                    animation: shimmer 3s infinite;
+                }
+
+                .hover-border-glow:hover {
+                    animation: borderGlowPulse 2s infinite ease-in-out;
+                }
+
+                .animate-slow-float {
+                    animation: slowFloat 5s ease-in-out infinite;
+                }
+            </style>
+
+            <!-- Left Column: Content & Bio (Preserved 100% exact text) -->
+            <div class="lg:col-span-7 space-y-6 relative z-10">
+                <p class="text-lg font-semibold text-yellow-400 tracking-wide animate-fade-up-1">
+                    <span class="lang-en">Hi, I'm MD SIAM</span><span class="lang-bn">হাই, আমি এমডি সিয়াম</span>
+                </p>
+
+                <!-- Animated Typing Effect with Pulsing Cursor -->
+                <div class="min-h-[48px] sm:min-h-[60px] flex items-center animate-fade-up-2">
+                    <h1 style="font-family: 'Poppins', 'Hind Siliguri', sans-serif;"
+                        class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white flex items-center">
+                        <span id="typed-text" class="text-gold-gradient"></span><span
+                            class="typing-cursor-pulsing"></span>
+                    </h1>
+                </div>
+
+                <!-- Primary Role Subtitle -->
+                <p style="font-family: 'Poppins', 'Hind Siliguri', sans-serif;"
+                    class="text-lg sm:text-xl font-bold tracking-wide text-amber-400/90 animate-fade-up-3">
+                    <span class="lang-en">App Developer & Umrah Operations Specialist</span>
+                    <span class="lang-bn">অ্যাপ ডেভেলপার ও উমরাহ অপারেশনস স্পেশালিস্ট</span>
+                </p>
+
+                <!-- Preserved Exact Bio Paragraph -->
+                <p class="text-zinc-300 text-base sm:text-lg max-w-xl leading-relaxed font-normal animate-fade-up-4">
+                    <span class="lang-en">A tech-driven App Developer & Umrah Operations Specialist blending
+                        software development with real-world business execution. Experienced in building modern
+                        mobile applications while managing core operations in the Umrah & Travel industry—including
+                        passenger data management, Excel financial reporting, and visa documentation. Dedicated to
+                        crafting seamless digital products and optimizing business workflows through code.</span>
+                    <span class="lang-bn">একজন টেক-ড্রাইভেন অ্যাপ ডেভেলপার এবং ট্রাভেল অপারেশনস স্পেশালিস্ট,
+                        যিনি সফটওয়্যার ডেভেলপমেন্ট ও বাস্তব ব্যবসায়িক কার্যক্রমের সুন্দর সমন্বয় ঘটিয়ে চলেছেন। উমরাহ
+                        ও ট্রাভেল ইন্ডাস্ট্রির মূল অপারেশনস—যেমন প্যাসেঞ্জার ডেটা ম্যানেজমেন্ট, এক্সেল
+                        ফাইন্যান্সিয়াল রিপোর্টিং এবং ভিসা ডকুমেন্টেশন পরিচালনার পাশাপাশি আধুনিক মোবাইল অ্যাপ্লিকেশন
+                        তৈরিতে অভিজ্ঞ। কোডিংয়ের মাধ্যমে নিখুঁত ডিজিটাল পণ্য তৈরি এবং ব্যবসায়িক ওয়ার্কফ্লো অপ্টিমাইজ
+                        করতেই আমি প্রতিশ্রুতিবদ্ধ।</span>
+                </p>
+
+                <!-- Action Buttons with Shimmer & Glow Hover Effects -->
+                <div class="flex flex-wrap items-center gap-4 pt-4 animate-fade-up-5">
+                    <a href="#projects"
+                        class="tilt-card shimmer-btn px-8 py-4 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-bold text-sm hover:from-yellow-400 hover:to-amber-500 shadow-lg shadow-yellow-500/25 inline-block transition-transform duration-300 hover:scale-105">
+                        <span class="tilt-inner inline-block">
+                            <span class="lang-en">Explore Projects</span><span class="lang-bn">প্রজেক্ট দেখুন</span>
+                        </span>
+                    </a>
+                    <a href="#contact"
+                        class="tilt-card hover-border-glow px-8 py-4 rounded-xl border border-yellow-500/40 text-yellow-400 font-bold text-sm hover:bg-yellow-500/10 inline-block transition-all duration-300 hover:scale-105">
+                        <span class="tilt-inner inline-block">
+                            <span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Single Clean Portrait Frame with Golden Glow & Badge -->
+            <div class="lg:col-span-5 flex justify-center relative py-10 z-10">
+
+                <!-- Background Gold Glow Circles -->
+                <div
+                    class="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-amber-600 to-yellow-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-0 opacity-80 blur-[1px]">
+                </div>
+                <div
+                    class="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full bg-yellow-300 top-1/3 left-1/2 -translate-x-1/2 -z-0 opacity-30">
+                </div>
+
+                <!-- Single Clean Portrait Photo Frame with Slow Float & Hover Golden Glow -->
+                <div
+                    class="relative z-20 w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-2 border-yellow-500/60 animate-slow-float transition-all duration-500 hover:shadow-[0_0_35px_rgba(234,179,8,0.7)] hover:border-yellow-400">
+                    <img src="/siam-hero.jpg" alt="MD SIAM - Personal Portrait"
+                        onerror="this.onerror=null; this.src='https://placeholder.co/600x750/18181b/eab308?text=MD+SIAM';"
+                        class="w-full h-full object-cover object-top">
+
+                    <!-- Gradient Overlay from Dark to Transparent at the bottom -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-[#09090b]/90 via-[#09090b]/30 to-transparent pointer-events-none">
+                    </div>
+
+                    <!-- Clean Bottom-Right Name & Title Badge -->
+                    <div
+                        class="absolute bottom-4 right-4 z-30 text-right bg-zinc-950/70 backdrop-blur-md px-3 py-2 rounded-xl border border-yellow-500/30 shadow-lg pointer-events-none">
+                        <p class="text-xs font-bold text-yellow-400 tracking-wide">Md. Siam</p>
+                        <p class="text-[10px] font-medium text-zinc-300">IT Specialist & Omrah Operations</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
         </div>
         </div>
         </div>
