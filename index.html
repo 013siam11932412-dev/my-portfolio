@@ -182,13 +182,61 @@
 
         <div
             class="bg-[#111115]/90 backdrop-blur-md rounded-3xl shadow-2xl overflow-hidden border border-yellow-500/20 p-6 sm:p-10 lg:p-14 relative">
+            <!-- Hero Section Grid with Advanced Senior Developer Polish & Preserved Data -->
+            <section id="hero-section"
+                class="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16 p-6 sm:p-12 rounded-3xl bg-zinc-900/50 backdrop-blur-xl border border-yellow-500/20 shadow-2xl overflow-hidden group">
 
-            <!-- Hero Section Grid with Glassmorphic Wrapper & Advanced Animations -->
-            <section
-                class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16 p-6 sm:p-10 rounded-3xl bg-zinc-900/40 backdrop-blur-xl border border-yellow-500/20 shadow-2xl relative overflow-hidden">
-
-                <!-- Floating Animation & Golden Particle Dots Style -->
+                <!-- Dynamic Vanilla JS Mouse-Tracking Golden Spotlight Glow Style & Animations -->
                 <style>
+                    #hero-section::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(234, 179, 8, 0.08), transparent 40%);
+                        pointer-events: none;
+                        z-index: 1;
+                        transition: opacity 0.3s ease;
+                    }
+
+                    @keyframes staggerFadeUp {
+                        0% {
+                            opacity: 0;
+                            transform: translateY(20px);
+                        }
+
+                        100% {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    @keyframes cursorPulse {
+
+                        0%,
+                        100% {
+                            opacity: 1;
+                            transform: scaleY(1);
+                        }
+
+                        50% {
+                            opacity: 0.3;
+                            transform: scaleY(0.85);
+                        }
+                    }
+
+                    @keyframes shimmer {
+                        0% {
+                            transform: translateX(-100%);
+                        }
+
+                        100% {
+                            transform: translateX(100%);
+                        }
+                    }
+
                     @keyframes slowFloat {
 
                         0%,
@@ -197,90 +245,109 @@
                         }
 
                         50% {
-                            transform: translateY(-10px);
+                            transform: translateY(-8px);
                         }
                     }
 
-                    @keyframes goldBorderGlow {
+                    @keyframes borderGlowPulse {
 
                         0%,
                         100% {
-                            box-shadow: 0 0 20px rgba(234, 179, 8, 0.4), inset 0 0 15px rgba(234, 179, 8, 0.2);
+                            box-shadow: 0 0 15px rgba(234, 179, 8, 0.3);
+                            border-color: rgba(234, 179, 8, 0.4);
                         }
 
                         50% {
-                            box-shadow: 0 0 35px rgba(234, 179, 8, 0.8), inset 0 0 25px rgba(234, 179, 8, 0.4);
+                            box-shadow: 0 0 25px rgba(234, 179, 8, 0.7);
+                            border-color: rgba(234, 179, 8, 0.9);
                         }
                     }
 
-                    @keyframes particleFloat1 {
-
-                        0%,
-                        100% {
-                            transform: translateY(0px) translateX(0px);
-                            opacity: 0.4;
-                        }
-
-                        50% {
-                            transform: translateY(-15px) translateX(8px);
-                            opacity: 0.9;
-                        }
+                    .animate-fade-up-1 {
+                        animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+                        opacity: 0;
                     }
 
-                    @keyframes particleFloat2 {
+                    .animate-fade-up-2 {
+                        animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+                        opacity: 0;
+                    }
 
-                        0%,
-                        100% {
-                            transform: translateY(0px) translateX(0px);
-                            opacity: 0.5;
-                        }
+                    .animate-fade-up-3 {
+                        animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+                        opacity: 0;
+                    }
 
-                        50% {
-                            transform: translateY(12px) translateX(-10px);
-                            opacity: 1;
-                        }
+                    .animate-fade-up-4 {
+                        animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+                        opacity: 0;
+                    }
+
+                    .animate-fade-up-5 {
+                        animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+                        opacity: 0;
+                    }
+
+                    .typing-cursor-pulsing {
+                        display: inline-block;
+                        width: 3px;
+                        height: 1em;
+                        background-color: #eab308;
+                        margin-left: 4px;
+                        vertical-align: middle;
+                        animation: cursorPulse 1.2s infinite ease-in-out;
+                    }
+
+                    .shimmer-btn {
+                        position: relative;
+                        overflow: hidden;
+                    }
+
+                    .shimmer-btn::after {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: -100%;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+                        animation: shimmer 3s infinite;
+                    }
+
+                    .hover-border-glow:hover {
+                        animation: borderGlowPulse 2s infinite ease-in-out;
                     }
 
                     .animate-slow-float {
                         animation: slowFloat 5s ease-in-out infinite;
                     }
-
-                    .animate-gold-glow {
-                        animation: goldBorderGlow 3s ease-in-out infinite;
-                    }
-
-                    .floating-particle-1 {
-                        animation: particleFloat1 4s ease-in-out infinite;
-                    }
-
-                    .floating-particle-2 {
-                        animation: particleFloat2 6s ease-in-out infinite;
-                    }
                 </style>
 
-                <!-- Left Column: Content & Bio -->
+                <!-- Left Column: Content & Bio (Preserved 100% exact text) -->
                 <div class="lg:col-span-7 space-y-6 relative z-10">
-                    <p class="text-lg font-semibold text-yellow-400 tracking-wide">
+                    <p class="text-lg font-semibold text-yellow-400 tracking-wide animate-fade-up-1">
                         <span class="lang-en">Hi, I'm MD SIAM</span><span class="lang-bn">হাই, আমি এমডি সিয়াম</span>
                     </p>
 
-                    <!-- Animated Typing Effect -->
-                    <div class="min-h-[48px] sm:min-h-[60px] flex items-center">
+                    <!-- Animated Typing Effect with Pulsing Cursor -->
+                    <div class="min-h-[48px] sm:min-h-[60px] flex items-center animate-fade-up-2">
                         <h1 style="font-family: 'Poppins', 'Hind Siliguri', sans-serif;"
-                            class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-                            <span id="typed-text" class="text-gold-gradient"></span><span class="typing-cursor"></span>
+                            class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white flex items-center">
+                            <span id="typed-text" class="text-gold-gradient"></span><span
+                                class="typing-cursor-pulsing"></span>
                         </h1>
                     </div>
 
                     <!-- Primary Role Subtitle -->
                     <p style="font-family: 'Poppins', 'Hind Siliguri', sans-serif;"
-                        class="text-lg sm:text-xl font-bold tracking-wide text-amber-400/90">
+                        class="text-lg sm:text-xl font-bold tracking-wide text-amber-400/90 animate-fade-up-3">
                         <span class="lang-en">App Developer & Umrah Operations Specialist</span>
                         <span class="lang-bn">অ্যাপ ডেভেলপার ও উমরাহ অপারেশনস স্পেশালিস্ট</span>
                     </p>
 
-                    <!-- Preserved Bio -->
-                    <p class="text-zinc-300 text-base sm:text-lg max-w-xl leading-relaxed font-normal">
+                    <!-- Preserved Exact Bio Paragraph -->
+                    <p
+                        class="text-zinc-300 text-base sm:text-lg max-w-xl leading-relaxed font-normal animate-fade-up-4">
                         <span class="lang-en">A tech-driven App Developer & Umrah Operations Specialist blending
                             software development with real-world business execution. Experienced in building modern
                             mobile applications while managing core operations in the Umrah & Travel industry—including
@@ -296,16 +363,16 @@
                             করতেই আমি প্রতিশ্রুতিবদ্ধ।</span>
                     </p>
 
-                    <!-- Action Buttons with 3D Tilt -->
-                    <div class="flex flex-wrap items-center gap-4 pt-4">
+                    <!-- Action Buttons with Shimmer & Glow Hover Effects -->
+                    <div class="flex flex-wrap items-center gap-4 pt-4 animate-fade-up-5">
                         <a href="#projects"
-                            class="tilt-card px-8 py-4 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-bold text-sm hover:from-yellow-400 hover:to-amber-500 shadow-lg shadow-yellow-500/25 inline-block">
+                            class="tilt-card shimmer-btn px-8 py-4 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-bold text-sm hover:from-yellow-400 hover:to-amber-500 shadow-lg shadow-yellow-500/25 inline-block transition-transform duration-300 hover:scale-105">
                             <span class="tilt-inner inline-block">
                                 <span class="lang-en">Explore Projects</span><span class="lang-bn">প্রজেক্ট দেখুন</span>
                             </span>
                         </a>
                         <a href="#contact"
-                            class="tilt-card px-8 py-4 rounded-xl border border-yellow-500/40 text-yellow-400 font-bold text-sm hover:bg-yellow-500/10 inline-block">
+                            class="tilt-card hover-border-glow px-8 py-4 rounded-xl border border-yellow-500/40 text-yellow-400 font-bold text-sm hover:bg-yellow-500/10 inline-block transition-all duration-300 hover:scale-105">
                             <span class="tilt-inner inline-block">
                                 <span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span>
                             </span>
@@ -313,7 +380,7 @@
                     </div>
                 </div>
 
-                <!-- Right Column: Personal Photo with Glassmorphic Card & Advanced Glow Animations -->
+                <!-- Right Column: Personal Photo with Floating Effect, Hover Border Glow & Clean Bottom-Right Badge -->
                 <div class="lg:col-span-5 flex justify-center relative py-10 z-10">
 
                     <!-- Background Gold Circles -->
@@ -328,30 +395,23 @@
                     <div
                         class="relative w-full max-w-xs sm:max-w-sm aspect-[4/5] p-3 rounded-3xl bg-zinc-900/50 backdrop-blur-md border border-yellow-500/30 shadow-2xl">
 
-                        <!-- Floating Golden Particle Dots Inside Frame -->
+                        <!-- Portrait Photo Frame with Slow Float & Hover Golden Glow Border -->
                         <div
-                            class="absolute top-4 left-4 w-3 h-3 rounded-full bg-yellow-400 blur-[0.5px] floating-particle-1 z-30">
-                        </div>
-                        <div
-                            class="absolute top-1/4 right-4 w-4 h-4 rounded-full bg-amber-300 blur-[1px] floating-particle-2 z-30">
-                        </div>
-                        <div
-                            class="absolute bottom-12 left-1/4 w-3.5 h-3.5 rounded-full bg-yellow-500 blur-[0.5px] floating-particle-2 z-30">
-                        </div>
-                        <div
-                            class="absolute bottom-8 right-6 w-2.5 h-2.5 rounded-full bg-amber-400 floating-particle-1 z-30">
-                        </div>
-
-                        <!-- Portrait Photo Frame with Slow Float & Golden Glow Border Animation -->
-                        <div
-                            class="relative z-20 w-full h-full rounded-2xl overflow-hidden shadow-2xl border-2 border-yellow-500/60 animate-slow-float animate-gold-glow">
+                            class="relative z-20 w-full h-full rounded-2xl overflow-hidden shadow-2xl border-2 border-yellow-500/60 animate-slow-float transition-all duration-500 hover:shadow-[0_0_30px_rgba(234,179,8,0.6)] hover:border-yellow-400">
                             <img src="/siam-hero.jpg" alt="MD SIAM - Personal Portrait"
                                 onerror="this.onerror=null; this.src='https://placeholder.co/600x750/18181b/eab308?text=MD+SIAM';"
                                 class="w-full h-full object-cover object-top">
 
                             <!-- Gradient Overlay from Dark to Transparent at the bottom -->
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 via-transparent to-transparent pointer-events-none">
+                                class="absolute inset-0 bg-gradient-to-t from-[#09090b]/90 via-[#09090b]/30 to-transparent pointer-events-none">
+                            </div>
+
+                            <!-- Clean Bottom-Right Name & Title Badge -->
+                            <div
+                                class="absolute bottom-4 right-4 z-30 text-right bg-zinc-950/70 backdrop-blur-md px-3 py-2 rounded-xl border border-yellow-500/30 shadow-lg pointer-events-none">
+                                <p class="text-xs font-bold text-yellow-400 tracking-wide">Md. Siam</p>
+                                <p class="text-[10px] font-medium text-zinc-300">IT Specialist & Omrah Operations</p>
                             </div>
                         </div>
 
@@ -359,6 +419,20 @@
                 </div>
 
             </section>
+
+            <!-- Mouse Tracking Spotlight JavaScript Script -->
+            <script>
+                const heroSection = document.getElementById('hero-section');
+                if (heroSection) {
+                    heroSection.addEventListener('mousemove', (e) => {
+                        const rect = heroSection.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        heroSection.style.setProperty('--mouse-x', `${x}px`);
+                        heroSection.style.setProperty('--mouse-y', `${y}px`);
+                    });
+                }
+            </script>
         </div>
         </div>
         </div>
