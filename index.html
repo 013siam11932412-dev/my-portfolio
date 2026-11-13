@@ -13,6 +13,7 @@
         rel="stylesheet">
     <style>
         /* Full Website Mouse-Tracking Golden Spotlight Effect */
+        /* Full Website Mouse-Tracking Golden Spotlight Effect */
         body::before {
             content: '';
             position: fixed;
@@ -22,6 +23,7 @@
             bottom: 0;
             background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(234, 179, 8, 0.06), transparent 50%);
             z-index: 9999;
+            pointer-events: none;
             transition: opacity 0.3s ease;
         }
 
@@ -633,6 +635,10 @@
         <div class="max-w-7xl mx-auto">
             <h2 class="text-2xl lg:text-3xl font-bold text-white mb-12 flex items-center gap-3">
                 <span class="w-8 h-1 bg-yellow-500 rounded-full"></span>
+                <section class="projects-section"> <!-- অথবা <div class="..."> থাকতে পারে -->
+                    <h2>Selected Projects</h2>
+                    <!-- আপনার প্রজেক্টের কার্ডগুলো এখানে আছে -->
+                </section>
                 <span class="lang-en">Selected Projects</span><span class="lang-bn">নির্বাচিত প্রজেক্টসমূহ</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
