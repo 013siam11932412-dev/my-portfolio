@@ -4,15 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MD SIAM - App Developer & Umrah Operations Specialist</title>
-    <!-- Tailwind CSS CDN -->
+    <title>MD SIAM — App Developer & Umrah Operations Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
         rel="stylesheet">
-
     <style>
         /* Full Website Mouse-Tracking Golden Spotlight Effect */
         body::before {
@@ -23,7 +21,6 @@
             right: 0;
             bottom: 0;
             background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(234, 179, 8, 0.06), transparent 50%);
-            pointer-events: none;
             z-index: 9999;
             transition: opacity 0.3s ease;
         }
@@ -33,7 +30,6 @@
             background-color: #09090b;
             color: #f4f4f5;
             overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
         }
 
         .lang-bn {
@@ -47,43 +43,71 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Hexagonal Styles */
+        /* 6. Glassmorphic Navbar */
+        .glass-nav {
+            background: rgba(9, 9, 11, 0.72);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(234, 179, 8, 0.18);
+        }
+
+        /* 2. Hexagonal Shape & Glow Effect */
         .hex-wrapper {
             position: relative;
-            width: 50px;
-            height: 50px;
+            width: 88px;
+            height: 98px;
+            margin: 0 auto 1.25rem;
             display: flex;
             align-items: center;
             justify-content: center;
+            filter: drop-shadow(0 0 12px rgba(234, 179, 8, 0.25));
+            transition: all 0.4s ease;
+        }
+
+        .skill-card:hover .hex-wrapper {
+            transform: translateY(-6px) scale(1.06);
+            filter: drop-shadow(0 0 22px rgba(234, 179, 8, 0.75));
         }
 
         .hex-border {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #fde047, #ca8a04);
+            background: linear-gradient(135deg, #facc15, #a16207);
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
         }
 
         .hex-inner {
             position: absolute;
             inset: 2px;
-            background: #111115;
+            background: #121216;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.3s ease;
+            font-size: 1.75rem;
         }
 
-        .skill-card:hover .hex-inner {
-            background: rgba(234, 179, 8, 0.15);
+        /* 3. 3D Tilt Project Card */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+            will-change: transform;
         }
 
-        /* Scroll Reveal Animation Classes */
+        .tilt-card:hover {
+            border-color: rgba(234, 179, 8, 0.55);
+            box-shadow: 0 20px 40px -15px rgba(234, 179, 8, 0.18);
+        }
+
+        .tilt-inner {
+            transform: translateZ(20px);
+        }
+
+        /* 5. Scroll Reveal Animation */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(35px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .reveal.active {
@@ -91,115 +115,249 @@
             transform: translateY(0);
         }
 
-        @keyframes slowFloat {
+        /* 1. Typing Cursor Blink */
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.1em;
+            background-color: #eab308;
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink 0.8s infinite;
+        }
+
+        @keyframes blink {
 
             0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
             100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-8px);
+                opacity: 0;
             }
         }
 
-        .animate-slow-float {
-            animation: slowFloat 5s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        .shimmer-btn {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .shimmer-btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-            animation: shimmer 3s infinite;
+        /* 4. Timeline Glow Dot */
+        .timeline-dot {
+            box-shadow: 0 0 0 4px rgba(234, 179, 8, 0.15), 0 0 15px rgba(234, 179, 8, 0.8);
         }
     </style>
 </head>
 
-<body class="bg-[#09090b] text-zinc-100 selection:bg-yellow-500 selection:text-black">
+<body class="bg-[#09090b] text-zinc-100 font-sans antialiased selection:bg-yellow-500 selection:text-black">
 
-    <!-- Glassmorphic Navbar with Blur Effect -->
-    <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-zinc-950/70 border-b border-zinc-800/80">
+    <!-- Subtle Ambient Background Glow -->
+    <div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-yellow-500/10 rounded-full blur-[130px]"></div>
+        <div class="absolute top-1/2 -right-40 w-96 h-96 bg-amber-600/10 rounded-full blur-[140px]"></div>
+    </div>
+
+    <!-- 6. Glassmorphic Fixed Header Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-            <a href="#" class="text-xl font-extrabold tracking-tight text-white flex items-center gap-2">
-                <span class="text-gold-gradient">MD SIAM</span>
+            <a href="#"
+                class="text-xl sm:text-2xl font-black tracking-wider text-yellow-400 bg-yellow-500/10 border border-yellow-500/30 px-4 py-1.5 rounded-xl hover:bg-yellow-500/20 transition-all">
+                MD SIAM
             </a>
 
-            <!-- Desktop Nav Links -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-300">
-                <a href="#about" class="hover:text-yellow-400 transition-colors">About</a>
-                <a href="#skills" class="hover:text-yellow-400 transition-colors">Skills</a>
-                <a href="#journey" class="hover:text-yellow-400 transition-colors">Journey</a>
-                <a href="#projects" class="hover:text-yellow-400 transition-colors">Projects</a>
-                <a href="#stats" class="hover:text-yellow-400 transition-colors">Stats</a>
-                <a href="#contact" class="hover:text-yellow-400 transition-colors">Contact</a>
+                <a href="#about" class="hover:text-yellow-400 transition-colors">
+                    <span class="lang-en">About</span><span class="lang-bn">সম্পর্কে</span>
+                </a>
+                <a href="#skills" class="hover:text-yellow-400 transition-colors">
+                    <span class="lang-en">Skills</span><span class="lang-bn">দক্ষতা</span>
+                </a>
+                <a href="#projects" class="hover:text-yellow-400 transition-colors">
+                    <span class="lang-en">Projects</span><span class="lang-bn">প্রজেক্টসমূহ</span>
+                </a>
+                <a href="#experience" class="hover:text-yellow-400 transition-colors">
+                    <span class="lang-en">Journey</span><span class="lang-bn">অভিজ্ঞতা</span>
+                </a>
+                <a href="#contact" class="hover:text-yellow-400 transition-colors">
+                    <span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span>
+                </a>
             </nav>
 
-            <!-- Language & Mobile Menu Action -->
             <div class="flex items-center gap-4">
-                <button onclick="toggleLanguage()"
-                    class="px-3 py-1.5 rounded-lg border border-yellow-500/40 text-yellow-400 text-xs font-bold hover:bg-yellow-500/10 transition-all">
-                    BN / EN
+                <!-- Language Toggle Button -->
+                <button onclick="toggleLanguage()" id="langToggleBtn"
+                    class="px-4 py-2 rounded-xl bg-yellow-500/10 border border-yellow-500/40 text-yellow-400 text-xs font-bold hover:bg-yellow-500 hover:text-black transition-all">
+                    বাংলা
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Main Container with Makkah Background Image & Hero Section -->
-    <main class="pt-28 pb-16 px-6 lg:px-16 max-w-7xl mx-auto relative">
+    <!-- Main Container Card (Hero Section) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 min-h-screen flex flex-col justify-center">
 
-        <!-- Background Makkah Image with Overlay -->
-        <div class="absolute inset-0 -z-10 opacity-20 pointer-events-none overflow-hidden rounded-3xl">
-            <img src="/siam-hero.jpg" alt="Background" class="w-full h-full object-cover filter blur-sm">
-        </div>
-
-        <!-- Hero Section Grid with Typing Effect, Spotlight & Preserved Data -->
+        <!-- Hero Section Grid with Single Clean Frame & Preserved Data -->
         <section id="hero-section"
-            class="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 py-12 px-4 sm:px-6">
+            class="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16 p-6 sm:p-12 rounded-3xl bg-zinc-900/50 backdrop-blur-xl border border-yellow-500/20 shadow-2xl overflow-hidden group">
 
-            <!-- Left Column: Content & Bio -->
-            <div class="lg:col-span-7 space-y-6 relative z-10 reveal active">
-                <p class="text-lg font-semibold text-yellow-400 tracking-wide">
+            <!-- Dynamic Vanilla JS Mouse-Tracking Golden Spotlight Glow Style & Animations -->
+            <style>
+                #hero-section::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(234, 179, 8, 0.08), transparent 40%);
+                    pointer-events: none;
+                    z-index: 1;
+                    transition: opacity 0.3s ease;
+                }
+
+                @keyframes staggerFadeUp {
+                    0% {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+
+                    100% {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                @keyframes cursorPulse {
+
+                    0%,
+                    100% {
+                        opacity: 1;
+                        transform: scaleY(1);
+                    }
+
+                    50% {
+                        opacity: 0.3;
+                        transform: scaleY(0.85);
+                    }
+                }
+
+                @keyframes shimmer {
+                    0% {
+                        transform: translateX(-100%);
+                    }
+
+                    100% {
+                        transform: translateX(100%);
+                    }
+                }
+
+                @keyframes slowFloat {
+
+                    0%,
+                    100% {
+                        transform: translateY(0px);
+                    }
+
+                    50% {
+                        transform: translateY(-8px);
+                    }
+                }
+
+                @keyframes borderGlowPulse {
+
+                    0%,
+                    100% {
+                        box-shadow: 0 0 15px rgba(234, 179, 8, 0.3);
+                        border-color: rgba(234, 179, 8, 0.4);
+                    }
+
+                    50% {
+                        box-shadow: 0 0 25px rgba(234, 179, 8, 0.7);
+                        border-color: rgba(234, 179, 8, 0.9);
+                    }
+                }
+
+                .animate-fade-up-1 {
+                    animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+                    opacity: 0;
+                }
+
+                .animate-fade-up-2 {
+                    animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+                    opacity: 0;
+                }
+
+                .animate-fade-up-3 {
+                    animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+                    opacity: 0;
+                }
+
+                .animate-fade-up-4 {
+                    animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+                    opacity: 0;
+                }
+
+                .animate-fade-up-5 {
+                    animation: staggerFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+                    opacity: 0;
+                }
+
+                .typing-cursor-pulsing {
+                    display: inline-block;
+                    width: 3px;
+                    height: 1em;
+                    background-color: #eab308;
+                    margin-left: 4px;
+                    vertical-align: middle;
+                    animation: cursorPulse 1.2s infinite ease-in-out;
+                }
+
+                .shimmer-btn {
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .shimmer-btn::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+                    animation: shimmer 3s infinite;
+                }
+
+                .hover-border-glow:hover {
+                    animation: borderGlowPulse 2s infinite ease-in-out;
+                }
+
+                .animate-slow-float {
+                    animation: slowFloat 5s ease-in-out infinite;
+                }
+            </style>
+
+            <!-- Left Column: Content & Bio (Preserved 100% exact text) -->
+            <div class="lg:col-span-7 space-y-6 relative z-10">
+                <p class="text-lg font-semibold text-yellow-400 tracking-wide animate-fade-up-1">
                     <span class="lang-en">Hi, I'm MD SIAM</span><span class="lang-bn">হাই, আমি এমডি সিয়াম</span>
                 </p>
 
-                <!-- Animated Typing Effect Heading -->
-                <div class="min-h-[50px] sm:min-h-[64px] flex items-center">
+                <!-- Animated Typing Effect with Pulsing Cursor -->
+                <div class="min-h-[48px] sm:min-h-[60px] flex items-center animate-fade-up-2">
                     <h1 style="font-family: 'Poppins', 'Hind Siliguri', sans-serif;"
                         class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white flex items-center">
-                        <span id="typed-text" class="text-gold-gradient"></span>
-                        <span class="inline-block w-1 h-8 sm:h-10 bg-yellow-400 ml-2 animate-pulse"></span>
+                        <span id="typed-text" class="text-gold-gradient"></span><span
+                            class="typing-cursor-pulsing"></span>
                     </h1>
                 </div>
 
                 <!-- Primary Role Subtitle -->
                 <p style="font-family: 'Poppins', 'Hind Siliguri', sans-serif;"
-                    class="text-lg sm:text-xl font-bold tracking-wide text-amber-400/90">
+                    class="text-lg sm:text-xl font-bold tracking-wide text-amber-400/90 animate-fade-up-3">
                     <span class="lang-en">App Developer & Umrah Operations Specialist</span>
                     <span class="lang-bn">অ্যাপ ডেভেলপার ও উমরাহ অপারেশনস স্পেশালিস্ট</span>
                 </p>
 
                 <!-- Preserved Exact Bio Paragraph -->
-                <p class="text-zinc-300 text-base sm:text-lg max-w-xl leading-relaxed font-normal">
+                <p class="text-zinc-300 text-base sm:text-lg max-w-xl leading-relaxed font-normal animate-fade-up-4">
                     <span class="lang-en">A tech-driven App Developer & Umrah Operations Specialist blending
                         software development with real-world business execution. Experienced in building modern
                         mobile applications while managing core operations in the Umrah & Travel industry—including
@@ -212,58 +370,9 @@
                         তৈরিতে অভিজ্ঞ। কোডিংয়ের মাধ্যমে নিখুঁত ডিজিটাল পণ্য তৈরি এবং ব্যবসায়িক ওয়ার্কফ্লো অপ্টিমাইজ
                         করতেই আমি প্রতিশ্রুতিবদ্ধ।</span>
                 </p>
-                <!-- About Me Section (Preserving Bilingual Support & Theme) -->
-                <section id="about"
-                    class="reveal py-16 px-6 lg:px-12 bg-zinc-900/40 rounded-3xl border border-zinc-800/80 mb-24 relative overflow-hidden">
-                    <div class="max-w-4xl mx-auto space-y-8 relative z-10">
-                        <div class="text-center space-y-2">
-                            <h2 class="text-3xl font-bold text-white">
-                                <span class="lang-en">About Me</span>
-                                <span class="lang-bn">আমার সম্পর্কে</span>
-                            </h2>
-                            <div class="w-16 h-1 bg-gradient-to-r from-yellow-400 to-amber-600 mx-auto rounded-full">
-                            </div>
-                        </div>
 
-                        <div
-                            class="space-y-6 text-zinc-300 text-base sm:text-lg leading-relaxed font-normal bg-[#111115]/80 p-6 sm:p-10 rounded-2xl border border-yellow-500/20 shadow-xl">
-                            <!-- Paragraph 1 -->
-                            <p>
-                                <span class="lang-en">I am an IT professional working in Saudi Arabia, bridging
-                                    technology and innovation within the Umrah and Hajj operations industry. I possess
-                                    deep hands-on experience in customer service, travel operations, document
-                                    processing, and administrative management.</span>
-                                <span class="lang-bn">আমি সৌদি আরবে কর্মরত একজন আইটি পেশাদার, যিনি উমরাহ ও হজ্জ অপারেশন
-                                    শিল্পে প্রযুক্তি ও উদ্ভাবনের সমন্বয় ঘটাচ্ছেন। কাস্টমার সার্ভিস, ট্রাভেল অপারেশনস,
-                                    ডকুমেন্ট প্রসেসিং এবং অ্যাডমিনিস্ট্রেটিভ ম্যানেজমেন্টে আমার গভীর বাস্তব অভিজ্ঞতা
-                                    রয়েছে।</span>
-                            </p>
-
-                            <!-- Paragraph 2 -->
-                            <p>
-                                <span class="lang-en">Alongside my professional responsibilities, I am actively
-                                    mastering modern technologies—building web applications with Python Flask and
-                                    Next.js, crafting AI-driven solutions using Google Antigravity CLI and Gemini AI,
-                                    and deploying projects on Vercel and Render.</span>
-                                <span class="lang-bn">পেশাদার দায়িত্বের পাশাপাশি, আমি আধুনিক প্রযুক্তি রপ্ত করছি —
-                                    Python Flask ও Next.js দিয়ে ওয়েব অ্যাপ্লিকেশন তৈরি করছি, Google Antigravity CLI ও
-                                    Gemini AI ব্যবহার করে AI-চালিত সমাধান নির্মাণ করছি এবং Vercel ও Render-এ প্রজেক্ট
-                                    ডেপ্লয় করছি।</span>
-                            </p>
-
-                            <!-- Paragraph 3 (Highlighted Goal) -->
-                            <p
-                                class="p-4 rounded-xl bg-yellow-500/5 border-l-4 border-yellow-400 text-zinc-200 font-medium">
-                                <span class="lang-en">My Goal — To integrate traditional Umrah industry operations with
-                                    modern technology to ensure more efficient, reliable, and humane service.</span>
-                                <span class="lang-bn">আমার লক্ষ্য — উমরাহ শিল্পের ঐতিহ্যবাহী অপারেশনকে আধুনিক প্রযুক্তির
-                                    সাথে একীভূত করে আরও দক্ষ, নির্ভরযোগ্য এবং মানবিক সেবা নিশ্চিত করা।</span>
-                            </p>
-                        </div>
-                    </div>
-                </section>
-                <!-- Action Buttons with Shimmer & Tilt -->
-                <div class="flex flex-wrap items-center gap-4 pt-4">
+                <!-- Action Buttons with Shimmer & Glow Hover Effects -->
+                <div class="flex flex-wrap items-center gap-4 pt-4 animate-fade-up-5">
                     <a href="#projects"
                         class="tilt-card shimmer-btn px-8 py-4 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 text-black font-bold text-sm hover:from-yellow-400 hover:to-amber-500 shadow-lg shadow-yellow-500/25 inline-block transition-transform duration-300 hover:scale-105">
                         <span class="tilt-inner inline-block">
@@ -271,7 +380,7 @@
                         </span>
                     </a>
                     <a href="#contact"
-                        class="tilt-card px-8 py-4 rounded-xl border border-yellow-500/40 text-yellow-400 font-bold text-sm hover:bg-yellow-500/10 inline-block transition-all duration-300 hover:scale-105">
+                        class="tilt-card hover-border-glow px-8 py-4 rounded-xl border border-yellow-500/40 text-yellow-400 font-bold text-sm hover:bg-yellow-500/10 inline-block transition-all duration-300 hover:scale-105">
                         <span class="tilt-inner inline-block">
                             <span class="lang-en">Contact</span><span class="lang-bn">যোগাযোগ</span>
                         </span>
@@ -280,473 +389,609 @@
             </div>
 
             <!-- Right Column: Single Clean Portrait Frame with Golden Glow & Badge -->
-            <div class="lg:col-span-5 flex justify-center relative py-10 z-10 reveal">
-                <!-- Background Gold Circles -->
+            <div class="lg:col-span-5 flex justify-center relative py-10 z-10">
+
+                <!-- Background Gold Glow Circles -->
                 <div
                     class="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-amber-600 to-yellow-400 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-0 opacity-80 blur-[1px]">
                 </div>
+                <div
+                    class="absolute w-60 h-60 sm:w-72 sm:h-72 rounded-full bg-yellow-300 top-1/3 left-1/2 -translate-x-1/2 -z-0 opacity-30">
+                </div>
 
-                <!-- Portrait Photo Frame with Slow Float & Hover Golden Glow -->
+                <!-- Single Clean Portrait Photo Frame with Slow Float & Hover Golden Glow -->
                 <div
                     class="relative z-20 w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-2 border-yellow-500/60 animate-slow-float transition-all duration-500 hover:shadow-[0_0_35px_rgba(234,179,8,0.7)] hover:border-yellow-400">
-                    <img src="/siam-hero.jpg" alt="MD SIAM - Personal Portrait" loading="eager"
+                    <img src="/siam-hero.jpg" alt="MD SIAM - Personal Portrait"
                         onerror="this.onerror=null; this.src='https://placeholder.co/600x750/18181b/eab308?text=MD+SIAM';"
                         class="w-full h-full object-cover object-top">
 
+                    <!-- Gradient Overlay from Dark to Transparent at the bottom -->
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-[#09090b]/90 via-[#09090b]/30 to-transparent pointer-events-none">
                     </div>
 
                     <!-- Clean Bottom-Right Name & Title Badge -->
                     <div
-                        class="absolute bottom-4 right-4 z-30 text-right bg-zinc-950/70 backdrop-blur-md px-3 py-2 rounded-xl border border-yellow-500/35 shadow-lg pointer-events-none">
+                        class="absolute bottom-4 right-4 z-30 text-right bg-zinc-950/70 backdrop-blur-md px-3 py-2 rounded-xl border border-yellow-500/30 shadow-lg pointer-events-none">
                         <p class="text-xs font-bold text-yellow-400 tracking-wide">Md. Siam</p>
-                        <p class="text-[10px] font-medium text-zinc-300">IT Specialist & Umrah Operations</p>
+                        <p class="text-[10px] font-medium text-zinc-300">IT Specialist & Omrah Operations</p>
                     </div>
                 </div>
+
             </div>
 
         </section>
 
-        <!-- Skills Section with 3D Tilt & Glow Effects -->
-        <section id="skills"
-            class="reveal py-20 px-6 lg:px-12 bg-zinc-900/30 rounded-3xl border border-zinc-800/80 mb-24">
-            <div class="max-w-5xl mx-auto text-center space-y-12">
-                <div>
-                    <h2 class="text-3xl font-bold text-white mb-2">
-                        <span class="lang-en">Core Expertise & Skills</span><span class="lang-bn">দক্ষতা ও
-                            প্রযুক্তি</span>
-                    </h2>
-                    <p class="text-zinc-400 text-sm">Hover or tilt cards to experience interactive gold glow</p>
-                </div>
+        <!-- Mouse Tracking Spotlight JavaScript Script -->
+        <script>
+            const heroSection = document.getElementById('hero-section');
+            if (heroSection) {
+                heroSection.addEventListener('mousemove', (e) => {
+                    const rect = heroSection.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    heroSection.style.setProperty('--mouse-x', `${x}px`);
+                    heroSection.style.setProperty('--mouse-y', `${y}px`);
+                });
+            }
+        </script>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- 7. Animated Number Counter & Tilt Stats Section -->
+        <div id="stats-section"
+            class="mt-14 pt-10 border-t border-zinc-800/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
 
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <!-- Skill Card 1 -->
-                    <div
-                        class="skill-card tilt-card p-6 rounded-2xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/60 transition-all duration-300 group flex flex-col items-center shadow-lg">
-                        <div class="hex-wrapper mb-3">
-                            <div class="hex-border"></div>
-                            <div class="hex-inner">
-                                <span class="text-yellow-400 font-bold text-lg">AI</span>
-                            </div>
-                        </div>
-                        <h3 class="font-bold text-sm text-white group-hover:text-yellow-400 transition-colors">AI &
-                            Chatbots</h3>
-                        <p class="text-[11px] text-zinc-400 mt-1">APIs & Integrations</p>
+            <!-- Stat Card 1 -->
+            <div class="tilt-card p-4 rounded-2xl bg-zinc-900/70 border border-yellow-500/15 cursor-pointer">
+                <div class="tilt-inner">
+                    <div class="text-3xl sm:text-4xl font-black text-gold-gradient">
+                        <span class="counter" data-target="4">0</span>+
                     </div>
-
-                    <!-- Skill Card 2 -->
-                    <div
-                        class="skill-card tilt-card p-6 rounded-2xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/60 transition-all duration-300 group flex flex-col items-center shadow-lg">
-                        <div class="hex-wrapper mb-3">
-                            <div class="hex-border"></div>
-                            <div class="hex-inner">
-                                <span class="text-yellow-400 font-bold text-lg">JS</span>
-                            </div>
-                        </div>
-                        <h3 class="font-bold text-sm text-white group-hover:text-yellow-400 transition-colors">
-                            JavaScript</h3>
-                        <p class="text-[11px] text-zinc-400 mt-1">Full-Stack Web</p>
-                    </div>
-
-                    <!-- Skill Card 3 -->
-                    <div
-                        class="skill-card tilt-card p-6 rounded-2xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/60 transition-all duration-300 group flex flex-col items-center shadow-lg">
-                        <div class="hex-wrapper mb-3">
-                            <div class="hex-border"></div>
-                            <div class="hex-inner">
-                                <span class="text-yellow-400 font-bold text-lg">EX</span>
-                            </div>
-                        </div>
-                        <h3 class="font-bold text-sm text-white group-hover:text-yellow-400 transition-colors">Financial
-                            Excel</h3>
-                        <p class="text-[11px] text-zinc-400 mt-1">Reporting & Analysis</p>
-                    </div>
-
-                    <!-- Skill Card 4 -->
-                    <div
-                        class="skill-card tilt-card p-6 rounded-2xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/60 transition-all duration-300 group flex flex-col items-center shadow-lg">
-                        <div class="hex-wrapper mb-3">
-                            <div class="hex-border"></div>
-                            <div class="hex-inner">
-                                <span class="text-yellow-400 font-bold text-lg">UM</span>
-                            </div>
-                        </div>
-                        <h3 class="font-bold text-sm text-white group-hover:text-yellow-400 transition-colors">Umrah Ops
-                        </h3>
-                        <p class="text-[11px] text-zinc-400 mt-1">Travel & Logistics</p>
-                    </div>
+                    <p class="text-xs sm:text-sm text-zinc-400 mt-1 font-medium">
+                        <span class="lang-en">Years IT Experience</span><span class="lang-bn">বছরের আইটি
+                            অভিজ্ঞতা</span>
+                    </p>
                 </div>
             </div>
-        </section>
 
-        <!-- Animated Journey / Timeline Section -->
-        <section id="journey" class="reveal py-16 px-6 lg:px-12 mb-24">
-            <div class="max-w-4xl mx-auto space-y-12">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold text-white mb-2">
-                        <span class="lang-en">Professional Journey</span><span class="lang-bn">পেশাগত যাত্রা</span>
-                    </h2>
-                    <p class="text-zinc-400 text-sm">Milestones in software engineering and operations</p>
-                </div>
-
-                <div class="relative border-l-2 border-yellow-500/40 ml-4 sm:ml-32 space-y-10 pl-6 sm:pl-10">
-                    <!-- Timeline Item 1 -->
-                    <div class="relative group">
-                        <div
-                            class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-yellow-400 border-4 border-[#09090b] shadow-[0_0_10px_#eab308]">
-                        </div>
-                        <span class="text-xs font-bold text-yellow-400 tracking-wider">2026 - PRESENT</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Lead App Developer & Umrah Ops Specialist</h3>
-                        <p class="text-zinc-300 text-sm mt-2 leading-relaxed">Building modern mobile applications,
-                            optimizing passenger data workflows, and managing high-end travel logistics in Makkah, Saudi
-                            Arabia.</p>
+            <!-- Stat Card 2 -->
+            <div class="tilt-card p-4 rounded-2xl bg-zinc-900/70 border border-yellow-500/15 cursor-pointer">
+                <div class="tilt-inner">
+                    <div class="text-3xl sm:text-4xl font-black text-gold-gradient">
+                        <span class="counter" data-target="15">0</span>+
                     </div>
-
-                    <!-- Timeline Item 2 -->
-                    <div class="relative group">
-                        <div
-                            class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-zinc-700 border-4 border-[#09090b] group-hover:bg-yellow-400 transition-colors">
-                        </div>
-                        <span class="text-xs font-bold text-yellow-400 tracking-wider">2024 - 2025</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Full-Stack Web & Automation Developer</h3>
-                        <p class="text-zinc-300 text-sm mt-2 leading-relaxed">Developed custom habit tracking web apps,
-                            accounting software interfaces, and automated WhatsApp/Messenger chatbot integrations.</p>
-                    </div>
-
-                    <!-- Timeline Item 3 -->
-                    <div class="relative group">
-                        <div
-                            class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-zinc-700 border-4 border-[#09090b] group-hover:bg-yellow-400 transition-colors">
-                        </div>
-                        <span class="text-xs font-bold text-yellow-400 tracking-wider">2022 - 2023</span>
-                        <h3 class="text-xl font-bold text-white mt-1">Travel Tech & Financial Reporting Specialist</h3>
-                        <p class="text-zinc-300 text-sm mt-2 leading-relaxed">Streamlined financial reporting via Excel
-                            and integrated digital booking workflows to enhance customer experience.</p>
-                    </div>
+                    <p class="text-xs sm:text-sm text-zinc-400 mt-1 font-medium">
+                        <span class="lang-en">Apps & Web Projects</span><span class="lang-bn">অ্যাপ ও ওয়েব
+                            প্রজেক্ট</span>
+                    </p>
                 </div>
             </div>
-        </section>
 
-        <!-- Projects Section with 3D Tilt Cards -->
-        <section id="projects" class="reveal py-16 px-6 lg:px-12 mb-24">
-            <div class="max-w-6xl mx-auto space-y-12">
-                <div class="text-center">
-                    <h2 class="text-3xl font-bold text-white mb-2">
-                        <span class="lang-en">Featured Projects</span><span class="lang-bn">নির্বাচিত
-                            প্রজেক্টসমূহ</span>
-                    </h2>
-                    <p class="text-zinc-400 text-sm">Interactive applications with live deployment links</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Project Card 1 -->
-                    <div
-                        class="tilt-card p-8 rounded-3xl bg-zinc-900/60 border border-zinc-800 hover:border-yellow-500/60 transition-all duration-300 shadow-xl flex flex-col justify-between group">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center">
-                                <span
-                                    class="text-xs font-bold px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Mobile
-                                    & Web App</span>
-                                <span class="text-xs text-zinc-500">2026</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white group-hover:text-yellow-400 transition-colors">
-                                HealthyYou Habit Tracker</h3>
-                            <p class="text-zinc-300 text-sm leading-relaxed">Custom health and habit tracking PWA
-                                featuring interactive dashboards, screen time management, and customizable tracking
-                                modules.</p>
-                        </div>
-                        <div class="pt-6">
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 text-yellow-400 font-bold text-sm hover:underline">
-                                <span>Live Preview</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                </svg>
-                            </a>
-                        </div>
+            <!-- Stat Card 3 -->
+            <div class="tilt-card p-4 rounded-2xl bg-zinc-900/70 border border-yellow-500/15 cursor-pointer">
+                <div class="tilt-inner">
+                    <div class="text-3xl sm:text-4xl font-black text-gold-gradient">
+                        <span class="counter" data-target="1000">0</span>+
                     </div>
+                    <p class="text-xs sm:text-sm text-zinc-400 mt-1 font-medium">
+                        <span class="lang-en">Pilgrims & Clients Served</span><span class="lang-bn">হাজী ও
+                            ক্লায়েন্ট সেবা</span>
+                    </p>
+                </div>
+            </div>
 
-                    <!-- Project Card 2 -->
-                    <div
-                        class="tilt-card p-8 rounded-3xl bg-zinc-900/60 border border-zinc-800 hover:border-yellow-500/60 transition-all duration-300 shadow-xl flex flex-col justify-between group">
-                        <div class="space-y-4">
-                            <div class="flex justify-between items-center">
-                                <span
-                                    class="text-xs font-bold px-3 py-1 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/20">Operations
-                                    & Finance</span>
-                                <span class="text-xs text-zinc-500">2026</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-white group-hover:text-yellow-400 transition-colors">
-                                Umrah Ledger & Operations Suite</h3>
-                            <p class="text-zinc-300 text-sm leading-relaxed">Ledger-inspired bookkeeping software
-                                featuring calm precision design, tabular numerals, right-aligned monetary formatting,
-                                and secure data workflows.</p>
-                        </div>
-                        <div class="pt-6">
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 text-yellow-400 font-bold text-sm hover:underline">
-                                <span>Live Preview</span>
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                                </svg>
-                            </a>
-                        </div>
+            <!-- Stat Card 4 -->
+            <div class="tilt-card p-4 rounded-2xl bg-zinc-900/70 border border-yellow-500/15 cursor-pointer">
+                <div class="tilt-inner">
+                    <div class="text-3xl sm:text-4xl font-black text-gold-gradient">
+                        <span class="counter" data-target="100">0</span>%
                     </div>
+                    <p class="text-xs sm:text-sm text-zinc-400 mt-1 font-medium">
+                        <span class="lang-en">Workflow Automation Focus</span><span class="lang-bn">অটোমেশন
+                            দক্ষতা</span>
+                    </p>
                 </div>
             </div>
-        </section>
 
-        <!-- Stats Section with Number Counter Animation -->
-        <section id="stats-section"
-            class="reveal py-16 px-6 lg:px-12 bg-gradient-to-b from-zinc-900/40 to-zinc-900/80 rounded-3xl border border-yellow-500/20 mb-24 text-center">
-            <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="space-y-2">
-                    <p class="text-4xl sm:text-5xl font-extrabold text-yellow-400 counter" data-target="4">0</p>
-                    <p class="text-xs sm:text-sm font-medium text-zinc-400">Years Experience</p>
-                </div>
-                <div class="space-y-2">
-                    <p class="text-4xl sm:text-5xl font-extrabold text-yellow-400 counter" data-target="25">0</p>
-                    <p class="text-xs sm:text-sm font-medium text-zinc-400">Projects Completed</p>
-                </div>
-                <div class="space-y-2">
-                    <p class="text-4xl sm:text-5xl font-extrabold text-yellow-400 counter" data-target="1500">0</p>
-                    <p class="text-xs sm:text-sm font-medium text-zinc-400">Pilgrims Served</p>
-                </div>
-                <div class="space-y-2">
-                    <p class="text-4xl sm:text-5xl font-extrabold text-yellow-400 counter" data-target="100">0</p>
-                    <p class="text-xs sm:text-sm font-medium text-zinc-400">Client Satisfaction %</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section with Hexagonal Glow Social Icons -->
-        <section id="contact"
-            class="reveal py-20 px-6 lg:px-16 bg-[#0d0d11] border-t border-zinc-800/80 text-center rounded-3xl">
-            <div class="max-w-4xl mx-auto space-y-8">
-                <h2 class="text-3xl font-bold text-white">
-                    <span class="lang-en">Let's Connect</span><span class="lang-bn">যোগাযোগ করুন</span>
-                </h2>
-                <p class="text-zinc-400 font-normal">"I believe technology becomes valuable when it solves real
-                    problems."</p>
-
-                <!-- Email Display -->
-                <div
-                    class="inline-block bg-yellow-500/10 border border-yellow-500/30 px-6 py-3 rounded-2xl text-yellow-400 font-medium text-sm sm:text-base hover:scale-105 transition-transform duration-300 shadow-sm">
-                    📧 <a href="mailto:013siam11932412@gmail.com" class="hover:underline">013siam11932412@gmail.com</a>
-                </div>
-
-                <!-- Hexagonal Social Media Links -->
-                <div class="flex flex-wrap justify-center items-center gap-6 pt-6">
-                    <!-- LinkedIn -->
-                    <a href="https://www.linkedin.com/in/md-siam-7b7964314" target="_blank" rel="noopener noreferrer"
-                        class="skill-card tilt-card p-6 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group flex flex-col items-center min-w-[140px]">
-                        <div class="tilt-inner flex flex-col items-center">
-                            <div class="hex-wrapper !mb-2">
-                                <div class="hex-border"></div>
-                                <div class="hex-inner">
-                                    <svg class="w-6 h-6 fill-current text-blue-500" viewBox="0 0 24 24">
-                                        <path
-                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <span
-                                class="text-xs font-bold text-zinc-300 group-hover:text-yellow-400 transition-colors">LinkedIn</span>
-                        </div>
-                    </a>
-
-                    <!-- Facebook -->
-                    <a href="https://www.facebook.com/share/1EHVCXGyxW/" target="_blank" rel="noopener noreferrer"
-                        class="skill-card tilt-card p-6 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group flex flex-col items-center min-w-[140px]">
-                        <div class="tilt-inner flex flex-col items-center">
-                            <div class="hex-wrapper !mb-2">
-                                <div class="hex-border"></div>
-                                <div class="hex-inner">
-                                    <svg class="w-6 h-6 fill-current text-blue-400" viewBox="0 0 24 24">
-                                        <path
-                                            d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <span
-                                class="text-xs font-bold text-zinc-300 group-hover:text-yellow-400 transition-colors">Facebook</span>
-                        </div>
-                    </a>
-
-                    <!-- Instagram -->
-                    <a href="https://www.instagram.com/muhammadullah_siam/" target="_blank" rel="noopener noreferrer"
-                        class="skill-card tilt-card p-6 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group flex flex-col items-center min-w-[140px]">
-                        <div class="tilt-inner flex flex-col items-center">
-                            <div class="hex-wrapper !mb-2">
-                                <div class="hex-border"></div>
-                                <div class="hex-inner">
-                                    <svg class="w-6 h-6 fill-current text-pink-500" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <span
-                                class="text-xs font-bold text-zinc-300 group-hover:text-yellow-400 transition-colors">Instagram</span>
-                        </div>
-                    </a>
-
-                    <!-- WhatsApp -->
-                    <a href="https://wa.me/966539210753" target="_blank" rel="noopener noreferrer"
-                        class="skill-card tilt-card p-6 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group flex flex-col items-center min-w-[140px]">
-                        <div class="tilt-inner flex flex-col items-center">
-                            <div class="hex-wrapper !mb-2">
-                                <div class="hex-border"></div>
-                                <div class="hex-inner">
-                                    <svg class="w-6 h-6 fill-current text-green-500" viewBox="0 0 24 24">
-                                        <path
-                                            d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <span
-                                class="text-xs font-bold text-zinc-300 group-hover:text-yellow-400 transition-colors">WhatsApp</span>
-                        </div>
-                    </a>
-
-                    <!-- Telegram -->
-                    <a href="https://t.me/muhammadullah_siam" target="_blank" rel="noopener noreferrer"
-                        class="skill-card tilt-card p-6 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group flex flex-col items-center min-w-[140px]">
-                        <div class="tilt-inner flex flex-col items-center">
-                            <div class="hex-wrapper !mb-2">
-                                <div class="hex-border"></div>
-                                <div class="hex-inner">
-                                    <svg class="w-6 h-6 fill-current text-sky-400" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.534.26l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.195 1.006.131.832.943z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <span
-                                class="text-xs font-bold text-zinc-300 group-hover:text-yellow-400 transition-colors">Telegram</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
+
+    <!-- About Section -->
+    <section id="about" class="reveal py-24 px-6 lg:px-16 bg-[#0d0d11] border-t border-zinc-800/80">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-2xl lg:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+                <span class="w-8 h-1 bg-yellow-500 rounded-full"></span>
+                <span class="lang-en">About Me</span><span class="lang-bn">আমার সম্পর্কে</span>
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 text-zinc-300 leading-relaxed">
+                <div class="space-y-4">
+                    <p class="lang-en">I am an IT professional working in Saudi Arabia, where I integrate technology and
+                        innovation into the Umrah and Hajj operations sector. I possess extensive practical experience
+                        in customer service, travel operations, document processing, and administrative management.
+
+                        Beyond my professional responsibilities, I actively engage with modern technology—developing web
+                        applications using Python Flask and Next.js, building AI-powered solutions with Google
+                        Antigravity CLI and Gemini AI, and deploying projects on platforms like Vercel and Render.
+
+                        My goal is to modernize traditional operations within the Umrah industry by incorporating
+                        advanced technology, thereby ensuring services that are more efficient, reliable, and
+                        human-centric.</p>
+                    <p class="lang-bn">আমি সৌদি আরবে কর্মরত একজন আইটি পেশাদার, যিনি উমরাহ ও হজ্জ অপারেশন শিল্পে
+                        প্রযুক্তি ও উদ্ভাবনের সমন্বয় ঘটাচ্ছেন। কাস্টমার সার্ভিস, ট্রাভেল অপারেশনস, ডকুমেন্ট প্রসেসিং
+                        এবং অ্যাডমিনিস্ট্রেটিভ ম্যানেজমেন্টে আমার গভীর বাস্তব অভিজ্ঞতা রয়েছে।
+
+                        পেশাদার দায়িত্বের পাশাপাশি, আমি আধুনিক প্রযুক্তি রপ্ত করছি — Python Flask ও Next.js দিয়ে ওয়েব
+                        অ্যাপ্লিকেশন তৈরি করছি, Google Antigravity CLI ও Gemini AI ব্যবহার করে AI-চালিত সমাধান নির্মাণ
+                        করছি এবং Vercel ও Render-এ প্রজেক্ট ডেপ্লয় করছি।
+
+                        আমার লক্ষ্য — উমরাহ শিল্পের ঐতিহ্যবাহী অপারেশনকে আধুনিক প্রযুক্তির সাথে একীভূত করে আরও দক্ষ,
+                        নির্ভরযোগ্য এবং মানবিক সেবা নিশ্চিত করা।</p>
+
+                    <p class="lang-en">Alongside my professional work, I actively develop my skills in web development,
+                        AI tools, and workflow automation, building apps with Python Flask and Next.js.</p>
+                    <p class="lang-bn">আমার পেশাগত কাজের পাশাপাশি আমি ওয়েব ডেভেলপমেন্ট, এআই টুলস এবং ওয়ার্কফ্লো
+                        অটোমেশনে
+                        নিয়মিত দক্ষতা অর্জন করছি, পাইথন ফ্লাস্ক এবং নেক্সট.জেএস দিয়ে অ্যাপ তৈরি করছি।</p>
+                </div>
+                <div
+                    class="space-y-4 bg-gradient-to-br from-zinc-900 to-[#141419] p-8 rounded-2xl border border-yellow-500/25 shadow-xl flex flex-col justify-center">
+                    <p class="text-zinc-100 font-medium text-lg lang-en">My goal is to combine business knowledge and
+                        technology
+                        to build practical digital solutions that solve real-world problems.</p>
+                    <p class="text-zinc-100 font-medium text-lg lang-bn">আমার লক্ষ্য হলো ব্যবসায়িক জ্ঞান ও প্রযুক্তির
+                        সমন্বয়ে
+                        বাস্তব সমস্যার সমাধানমূলক ডিজিটাল সলিউশন তৈরি করা।</p>
+                    <div class="pt-4 border-t border-zinc-800">
+                        <h4 class="text-xs font-mono uppercase tracking-widest text-yellow-400 mb-2">
+                            <span class="lang-en">Philosophy</span><span class="lang-bn">দর্শন</span>
+                        </h4>
+                        <p class="text-xl font-serif italic text-amber-200">"Learn continuously. Build practically.
+                            Improve consistently."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Hexagonal Skills Section with Glow Effects -->
+    <section id="skills" class="reveal py-24 px-6 lg:px-16 bg-[#09090b] border-t border-zinc-800/80">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-2xl lg:text-3xl font-bold text-white mb-14 flex items-center gap-3">
+                <span class="w-8 h-1 bg-yellow-500 rounded-full"></span>
+                <span class="lang-en">Skills & Expertise</span><span class="lang-bn">দক্ষতা ও পারদর্শিতা</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Skill 1 -->
+                <div
+                    class="skill-card p-8 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group">
+                    <div class="hex-wrapper">
+                        <div class="hex-border"></div>
+                        <div class="hex-inner text-yellow-400 font-mono font-bold">&lt;/&gt;</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-5">Web Development</h3>
+                    <ul class="space-y-2.5 text-sm text-zinc-300">
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">HTML, CSS,
+                            JavaScript</li>
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">React & Next.js</li>
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">Tailwind CSS &
+                            Python Flask</li>
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">Responsive Web
+                            Design</li>
+                    </ul>
+                </div>
+
+                <!-- Skill 2 -->
+                <div
+                    class="skill-card p-8 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group">
+                    <div class="hex-wrapper">
+                        <div class="hex-border"></div>
+                        <div class="hex-inner">⚡</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-5">AI & Automation</h3>
+                    <ul class="space-y-2.5 text-sm text-zinc-300">
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">AI-assisted
+                            development & Vibe Coding</li>
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">Antigravity CLI &
+                            MCP</li>
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">API integration
+                            fundamentals</li>
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">PowerShell & Windows
+                            Task Scheduler</li>
+                    </ul>
+                </div>
+
+                <!-- Skill 3 -->
+                <div
+                    class="skill-card p-8 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group">
+                    <div class="hex-wrapper">
+                        <div class="hex-border"></div>
+                        <div class="hex-inner">🕋</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-5">Umrah & Travel Operations</h3>
+                    <ul class="space-y-2.5 text-sm text-zinc-300">
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">Customer Service &
+                            Client Handling</li>
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">Umrah Visa
+                            Documentation Support</li>
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">Flight & Hotel
+                            Coordination</li>
+                        <li class="py-1.5 px-3 rounded-lg bg-zinc-900/80 border border-zinc-800/80">Passport & Document
+                            Processing</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Projects Section with 3D Tilt Effect -->
+    <section id="projects" class="reveal py-24 px-6 lg:px-16 bg-[#0d0d11] border-t border-zinc-800/80">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-2xl lg:text-3xl font-bold text-white mb-12 flex items-center gap-3">
+                <span class="w-8 h-1 bg-yellow-500 rounded-full"></span>
+                <span class="lang-en">Selected Projects</span><span class="lang-bn">নির্বাচিত প্রজেক্টসমূহ</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Project 1 -->
+                <div
+                    class="tilt-card p-7 rounded-2xl bg-[#131318] border border-zinc-800 flex flex-col justify-between">
+                    <div class="tilt-inner">
+                        <div class="text-xs font-mono text-yellow-400 font-bold mb-2 tracking-wider">PYTHON / FLASK
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Famous Quotes Web App</h3>
+                        <p class="text-sm text-zinc-400 mb-6 leading-relaxed">A Python Flask website built for managing
+                            and displaying
+                            famous inspirational quotes.</p>
+                    </div>
+                    <div class="tilt-inner text-xs font-mono text-amber-300/80 pt-4 border-t border-zinc-800">
+                        Tech Stack: Python, Flask
+                    </div>
+                </div>
+
+                <!-- Project 2 (Clickable Live Link) -->
+                <a href="https://ironandhabit.vercel.app" target="_blank" rel="noopener noreferrer"
+                    class="tilt-card p-7 rounded-2xl bg-[#131318] border border-zinc-800 flex flex-col justify-between cursor-pointer group block">
+                    <div class="tilt-inner">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-mono text-yellow-400 font-bold tracking-wider">NEXT.JS /
+                                REACT</span>
+                            <span
+                                class="text-xs font-mono text-yellow-400/80 group-hover:text-yellow-300 flex items-center gap-1 transition-colors">
+                                Live ↗
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors mb-3">
+                            Iron & Habit — Fitness App
+                        </h3>
+                        <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                            A modern Next.js fitness application engineered with habit tracking and a sleek UX.
+                        </p>
+                    </div>
+                    <div
+                        class="tilt-inner text-xs font-mono text-amber-300/80 pt-4 border-t border-zinc-800 flex justify-between items-center">
+                        <span>Tech Stack: Next.js, Tailwind</span>
+                        <span class="text-[11px] text-zinc-500 group-hover:text-yellow-400 transition-colors">Click to
+                            visit →</span>
+                    </div>
+                </a>
+
+                <!-- Project 3 -->
+                <div
+                    class="tilt-card p-7 rounded-2xl bg-[#131318] border border-zinc-800 flex flex-col justify-between">
+                    <div class="tilt-inner">
+                        <div class="text-xs font-mono text-yellow-400 font-bold mb-2 tracking-wider">AUTOMATION</div>
+                        <h3 class="text-xl font-bold text-white mb-3">Downloads Automation</h3>
+                        <p class="text-sm text-zinc-400 mb-6 leading-relaxed">A PowerShell workflow designed to organize
+                            downloaded
+                            files automatically via Task Scheduler.</p>
+                    </div>
+                    <div class="tilt-inner text-xs font-mono text-amber-300/80 pt-4 border-t border-zinc-800">
+                        Tech Stack: PowerShell
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Animated Timeline Section (Journey & Experience) -->
+    <section id="experience" class="reveal py-24 px-6 lg:px-16 bg-[#09090b] border-t border-zinc-800/80">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-2xl lg:text-3xl font-bold text-white mb-14 flex items-center gap-3">
+                <span class="w-8 h-1 bg-yellow-500 rounded-full"></span>
+                <span class="lang-en">My Journey & Experience</span><span class="lang-bn">আমার পথচলা ও পেশাগত
+                    অভিজ্ঞতা</span>
+            </h2>
+
+            <!-- Timeline Container -->
+            <div class="relative border-l-2 border-yellow-500/40 ml-3 sm:ml-6 space-y-12">
+
+                <!-- Timeline Item 1 -->
+                <div class="reveal relative pl-8 sm:pl-12">
+                    <span class="timeline-dot absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-yellow-400"></span>
+                    <div
+                        class="p-8 rounded-2xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/40 transition-all shadow-lg">
+                        <div class="flex flex-wrap justify-between items-start gap-4 mb-4">
+                            <div>
+                                <span class="text-xs font-mono text-yellow-400 uppercase tracking-wider">Present
+                                    Role</span>
+                                <h3 class="text-xl font-bold text-white mt-1">IT Professional & Technical & Umrah / Hajj
+                                    Operations Specialist</h3>
+                                <p class="text-sm text-zinc-400 mt-0.5">Technical Support & Travel Operations</p>
+                            </div>
+                            <span
+                                class="px-3.5 py-1.5 rounded-xl bg-yellow-500/10 border border-yellow-500/30 text-yellow-400 text-xs font-mono font-bold">
+                                Makkah, Saudi Arabia
+                            </span>
+                        </div>
+                        <ul class="space-y-2.5 text-sm text-zinc-300 list-disc list-inside marker:text-yellow-500">
+                            <li>4+ years of experience in computer systems, technical support, troubleshooting, and data
+                                management.</li>
+                            <li>Skilled in Microsoft Excel, reporting, Windows automation, and digital documentation.
+                            </li>
+                            <li>1+ year of experience in Umrah & Hajj travel operations and passenger data management.
+                            </li>
+                            <li>Experienced in visa documentation, passport processing, invoicing, and transport/hotel
+                                vouchers.</li>
+                            <li>Focused on improving business efficiency through technology, automation, and reliable
+                                operational support.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="reveal relative pl-8 sm:pl-12">
+                    <span class="timeline-dot absolute -left-[9px] top-6 w-4 h-4 rounded-full bg-amber-500"></span>
+                    <div
+                        class="p-8 rounded-2xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/40 transition-all shadow-lg">
+                        <div class="mb-4">
+                            <span class="text-xs font-mono text-yellow-400 uppercase tracking-wider">Software & AI
+                                Engineering</span>
+                            <h3 class="text-xl font-bold text-white mt-1">Independent Web Development & Automation</h3>
+                            <p class="text-sm text-zinc-400 mt-0.5">Personal & Client Projects</p>
+                        </div>
+                        <ul class="space-y-2.5 text-sm text-zinc-300 list-disc list-inside marker:text-yellow-500">
+                            <li>Architect and build practical, modern web applications.</li>
+                            <li>Explore and implement AI-assisted development tools and workflows.</li>
+                            <li>Automate repetitive computer and operational tasks to optimize productivity.</li>
+                            <li>Continuously learn and deploy modern full-stack web technologies.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with Hexagonal Glow Effects -->
+    <section id="contact" class="reveal py-24 px-6 lg:px-16 bg-[#0d0d11] border-t border-zinc-800/80 text-center">
+        <div class="max-w-4xl mx-auto space-y-8">
+            <h2 class="text-3xl font-bold text-white">
+                <span class="lang-en">Let's Connect</span><span class="lang-bn">যোগাযোগ করুন</span>
+            </h2>
+            <p class="text-zinc-400 font-normal">"I believe technology becomes valuable when it solves real problems."
+            </p>
+
+            <!-- Email Display -->
+            <div
+                class="inline-block bg-yellow-500/10 border border-yellow-500/30 px-6 py-3 rounded-2xl text-yellow-400 font-medium text-sm sm:text-base hover:scale-105 transition-transform duration-300 shadow-sm">
+                📧 <a href="mailto:013siam11932412@gmail.com" class="hover:underline">013siam11932412@gmail.com</a>
+            </div>
+
+            <!-- Hexagonal Social Media Links with Glow Effects -->
+            <div class="flex flex-wrap justify-center items-center gap-6 pt-6">
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/md-siam-7b7964314" target="_blank" rel="noopener noreferrer"
+                    class="skill-card tilt-card p-6 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group flex flex-col items-center min-w-[140px]">
+                    <div class="tilt-inner flex flex-col items-center">
+                        <div class="hex-wrapper !mb-2">
+                            <div class="hex-border"></div>
+                            <div class="hex-inner">
+                                <svg class="w-6 h-6 fill-current text-blue-500" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span
+                            class="text-xs font-bold text-zinc-300 group-hover:text-yellow-400 transition-colors">LinkedIn</span>
+                    </div>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/share/1EHVCXGyxW/" target="_blank" rel="noopener noreferrer"
+                    class="skill-card tilt-card p-6 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group flex flex-col items-center min-w-[140px]">
+                    <div class="tilt-inner flex flex-col items-center">
+                        <div class="hex-wrapper !mb-2">
+                            <div class="hex-border"></div>
+                            <div class="hex-inner">
+                                <svg class="w-6 h-6 fill-current text-blue-400" viewBox="0 0 24 24">
+                                    <path
+                                        d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span
+                            class="text-xs font-bold text-zinc-300 group-hover:text-yellow-400 transition-colors">Facebook</span>
+                    </div>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/muhammadullah_siam?cplk=Z25oenplNjc0Y3c1" target="_blank"
+                    rel="noopener noreferrer"
+                    class="skill-card tilt-card p-6 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group flex flex-col items-center min-w-[140px]">
+                    <div class="tilt-inner flex flex-col items-center">
+                        <div class="hex-wrapper !mb-2">
+                            <div class="hex-border"></div>
+                            <div class="hex-inner">
+                                <svg class="w-6 h-6 fill-current text-pink-500" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span
+                            class="text-xs font-bold text-zinc-300 group-hover:text-yellow-400 transition-colors">Instagram</span>
+                    </div>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/966539210753" target="_blank" rel="noopener noreferrer"
+                    class="skill-card tilt-card p-6 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group flex flex-col items-center min-w-[140px]">
+                    <div class="tilt-inner flex flex-col items-center">
+                        <div class="hex-wrapper !mb-2">
+                            <div class="hex-border"></div>
+                            <div class="hex-inner">
+                                <svg class="w-6 h-6 fill-current text-green-500" viewBox="0 0 24 24">
+                                    <path
+                                        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span
+                            class="text-xs font-bold text-zinc-300 group-hover:text-yellow-400 transition-colors">WhatsApp</span>
+                    </div>
+                </a>
+
+                <!-- Telegram -->
+                <a href="https://t.me/muhammadullah_siam" target="_blank" rel="noopener noreferrer"
+                    class="skill-card tilt-card p-6 rounded-3xl bg-[#111115] border border-zinc-800 hover:border-yellow-500/50 transition-all duration-300 text-center group flex flex-col items-center min-w-[140px]">
+                    <div class="tilt-inner flex flex-col items-center">
+                        <div class="hex-wrapper !mb-2">
+                            <div class="hex-border"></div>
+                            <div class="hex-inner">
+                                <svg class="w-6 h-6 fill-current text-sky-400" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.14-.26.26-.534.26l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.195 1.006.131.832.943z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <span
+                            class="text-xs font-bold text-zinc-300 group-hover:text-yellow-400 transition-colors">Telegram</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="py-8 px-6 text-center border-t border-zinc-800 text-xs text-zinc-500 bg-[#09090b]">
         <p>&copy; 2026 MD SIAM. All rights reserved. • Makkah, Saudi Arabia</p>
     </footer>
 
-    <!-- JavaScript for Animations, Typing, Spotlight, Stats Counter & Mobile Optimization -->
+    <!-- Interactive Scripts -->
     <script>
-        // 1. Mouse Tracking Spotlight Effect
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
-            document.body.style.setProperty('--mouse-x', `${x}px`);
-            document.body.style.setProperty('--mouse-y', `${y}px`);
+        // Bilingual Toggle
+        let currentLang = 'en';
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'bn' : 'en';
+            document.querySelectorAll('.lang-en').forEach(el => el.style.display = currentLang === 'en' ? 'inline' : 'none');
+            document.querySelectorAll('.lang-bn').forEach(el => el.style.display = currentLang === 'bn' ? 'inline' : 'none');
+            document.getElementById('langToggleBtn').innerText = currentLang === 'en' ? 'বাংলা' : 'English';
+        }
+        document.querySelectorAll('.lang-bn').forEach(el => el.style.display = 'none');
+
+        // 1. Animated Typing Effect
+        const words = ["AI Developer", "Umrah IT Specialist", "Web Developer"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typedElement = document.getElementById("typed-text");
+
+        function typeEffect() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typedElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let speed = isDeleting ? 55 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                speed = 1800; // Pause at end of word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                speed = 400;
+            }
+            setTimeout(typeEffect, speed);
+        }
+        document.addEventListener("DOMContentLoaded", typeEffect);
+
+        // 3. 3D Tilt Effect on Project Cards
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -8;
+                const rotateY = ((x - centerX) / centerX) * 8;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
         });
 
-        // 2. Animated Typing Effect
-        const words = ["AI Developer", "Umrah IT Specialist", "Web Developer"];
-        let i = 0;
-        let timer;
-
-        function typingEffect() {
-            let word = words[i].split("");
-            var loopTyping = function () {
-                if (word.length > 0) {
-                    document.getElementById('typed-text').innerHTML += word.shift();
-                } else {
-                    setTimeout(deletingEffect, 2000);
-                    return false;
-                }
-                timer = setTimeout(loopTyping, 100);
-            };
-            loopTyping();
-        }
-
-        function deletingEffect() {
-            let word = words[i].split("");
-            var loopDeleting = function () {
-                if (word.length > 0) {
-                    word.pop();
-                    document.getElementById('typed-text').innerHTML = word.join("");
-                } else {
-                    if (words.length > (i + 1)) {
-                        i++;
-                    } else {
-                        i = 0;
-                    }
-                    setTimeout(typingEffect, 500);
-                    return false;
-                }
-                timer = setTimeout(loopDeleting, 50);
-            };
-            loopDeleting();
-        }
-        typingEffect();
-
-        // 3. Scroll Reveal Observer
-        const observer = new IntersectionObserver((entries) => {
+        // 5. Scroll Reveal Animation
+        const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.12 });
 
-        document.querySelectorAll('.reveal').forEach((el) => {
-            observer.observe(el);
-        });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-        // 4. Number Counter Animation for Stats Section
-        const statsObserver = new IntersectionObserver((entries, observerInstance) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.counter');
-                    counters.forEach(counter => {
-                        const target = +counter.getAttribute('data-target');
-                        let count = 0;
-                        const speed = target / 50;
-                        const updateCount = () => {
-                            count += speed;
-                            if (count < target) {
-                                counter.innerText = Math.ceil(count);
-                                setTimeout(updateCount, 30);
-                            } else {
-                                counter.innerText = target + (target === 100 ? '%' : '+');
-                            }
-                        };
-                        updateCount();
-                    });
-                    observerInstance.unobserve(entry.target);
-                }
-            });
+        // 7. Animated Number Counter
+        let countersStarted = false;
+        const statsObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting && !countersStarted) {
+                countersStarted = true;
+                document.querySelectorAll('.counter').forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 1600;
+                    const stepTime = Math.max(Math.floor(duration / target), 20);
+                    let current = 0;
+                    const increment = Math.ceil(target / (duration / stepTime));
+
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            counter.innerText = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.innerText = current;
+                        }
+                    }, stepTime);
+                });
+            }
         }, { threshold: 0.3 });
 
         const statsSection = document.getElementById('stats-section');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-
-        // 5. Multi-language Toggle Function
-        function toggleLanguage() {
-            document.querySelectorAll('.lang-en').forEach(el => el.style.display = el.style.display === 'none' ? 'inline' : 'none');
-            document.querySelectorAll('.lang-bn').forEach(el => el.style.display = el.style.display === 'none' ? 'inline' : 'none');
-        }
-
-        // 6. Mobile Touch & Lazy Loading Optimizations
-        document.addEventListener('DOMContentLoaded', () => {
-            const isMobile = window.innerWidth <= 768 || ('ontouchstart' in window);
-            document.querySelectorAll('img').forEach((img, index) => {
-                if (index > 0 && !img.hasAttribute('loading')) {
-                    img.setAttribute('loading', 'lazy');
-                    img.setAttribute('decoding', 'async');
-                }
-            });
+        if (statsSection) statsObserver.observe(statsSection);
+    </script>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+            document.body.style.setProperty('--mouse-x', `${x}px`);
+            document.body.style.setProperty('--mouse-y', `${y}px`);
         });
     </script>
 </body>
